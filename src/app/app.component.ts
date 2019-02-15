@@ -16,7 +16,32 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Make Prediction',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'Previous Prediction',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'Actual Scores',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'Config',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'Prediction Archive',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'General Info',
       url: '/list',
       icon: 'list'
     }
