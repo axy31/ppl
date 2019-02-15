@@ -22,27 +22,27 @@ export class AppComponent {
     },
     {
       title: 'Previous Prediction',
-      url: '/list',
+      url: '/previousprediction',
       icon: 'list'
     },
     {
       title: 'Actual Scores',
-      url: '/list',
+      url: '/actualscores',
       icon: 'list'
     },
     {
       title: 'Config',
-      url: '/list',
+      url: '/config',
       icon: 'list'
     },
     {
       title: 'Prediction Archive',
-      url: '/list',
+      url: '/predictionarchive',
       icon: 'list'
     },
     {
       title: 'General Info',
-      url: '/list',
+      url: '/generalinfo',
       icon: 'list'
     }
   ];
