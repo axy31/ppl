@@ -7,14 +7,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'makeprediction', loadChildren: './makeprediction/makeprediction.module#MakepredictionPageModule' },
   { path: 'previousprediction', loadChildren: './previousprediction/previousprediction.module#PreviouspredictionPageModule' },
   { path: 'actualscores', loadChildren: './actualscores/actualscores.module#ActualscoresPageModule' },
@@ -27,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
