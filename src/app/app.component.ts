@@ -17,7 +17,7 @@ export class AppComponent {
     },
     {
       title: 'Make Prediction',
-      url: '/list',
+      url: '/makeprediction',
       icon: 'list'
     },
     {
