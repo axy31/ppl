@@ -14,6 +14,11 @@ import { PreviousPredictionsComponent } from './pages/previous-predictions/previ
 import { PredictionArchiveComponent } from './pages/prediction-archive/prediction-archive.component';
 import { GeneralInfoComponent } from './pages/general-info/general-info.component';
 import { ConfigComponent } from './pages/config/config.component';
+import { UserLoginComponent } from './users/user-login/user-login.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,16 +31,20 @@ import { ConfigComponent } from './pages/config/config.component';
     PreviousPredictionsComponent,
     PredictionArchiveComponent,
     GeneralInfoComponent,
-    ConfigComponent
+    ConfigComponent,
+    UserLoginComponent, 
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    RoutingModule
+    RoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
