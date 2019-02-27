@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-sm>
+      <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div style="margin-left: 10px">
+      <a routerLink="/home">PPL</a>
+  </div>
+  <div style="margin-left: 24px"></div>
+  <div fxFlex fxLayout fxLayoutAlign="start" fxHide.sm>
+      <ul fxLayout fxLayoutGap="24px" class="navigation-items">
+          <li>
+              <a routerLink="/home">Home</a>
+          </li>
+          <li>
+              <a routerLink="/makeprediction">Make Prediction</a>
+          </li>
+          <li>
+            <a routerLink="/previousprediction">Previous Predictions</a>
+        </li>
+        <li>
+            <a routerLink="/predictionarchive">Prediction Archive</a>
+        </li>
+        <li>
+            <a routerLink="/config">Config</a>
+        </li>
+        <li>
+            <a routerLink="/generalinfo">General Info</a>
+        </li>
+
+      </ul>
+  </div>
+</mat-toolbar>
