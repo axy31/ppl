@@ -13,12 +13,19 @@ a:hover, a:active{
     margin: 0;
 }
 
-mat-toolbar{
-    border-radius: 3px;
-}
-
 @media(max-width: 959px){
     mat-toolbar{
         border-radius: 0px;
     }
+}
+
+.icon
+{
+    font-size: 29px;
+}
+
+.padding-left
+{
+    margin-left: 10px;
+    vertical-align: center;
 }
