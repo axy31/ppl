@@ -109,6 +109,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
 /* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/index.js");
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
 
 
 
@@ -157,6 +161,11 @@ var AppModule = /** @class */ (function () {
                 _angular_flex_layout__WEBPACK_IMPORTED_MODULE_5__["FlexLayoutModule"],
                 _routing_routing_module__WEBPACK_IMPORTED_MODULE_9__["RoutingModule"],
                 _angular_fire__WEBPACK_IMPORTED_MODULE_20__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_21__["environment"].firebase),
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatSelectModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_23__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_23__["ReactiveFormsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatButtonModule"]
             ],
             providers: [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_19__["AngularFirestore"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
@@ -604,7 +613,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  make-prediction works!\n</p>\n"
+module.exports = "<div class=\"bodycontent\">\n  <form (ngSubmit)=\"makePrediction()\" [formGroup]=\"myGroup\">\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Match\" name=\"Match\" [formControl]=\"MatchId\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let item of matches\" [value]=\"item.MatchId\">\n            {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"MatchId.hasError('required')\">Please choose a winner</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Winner\" name=\"Winner\" [formControl]=\"Winner\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let team of teams\" [value]=\"team.TeamId\">\n            {{ team.TeamName }}\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"Winner.hasError('required')\">Please choose a winner</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n\n        <mat-select placeholder=\"Score\" name=\"ddlScore\" [formControl]=\"ddlScore\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let item of Scores\" [value]=\"item.ScoreId\">\n            {{item.FromScore}} - {{item.ToScore}}\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"ddlScore.hasError('required')\">Please choose a Score</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Wickets\" name=\"ddlWickets\" [formControl]=\"ddlWickets\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let item of Wickets\" [value]=\"item.WicketId\">\n            {{item.FromWicket}} - {{item.ToWicket}}\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"ddlWickets.hasError('required')\">Please choose Wickets</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Max Runs By\" name=\"MaxyRunsPlayer\" [formControl]=\"MaxyRunsPlayer\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let player of players\" [value]=\"player.PlayerId\">\n            {{ player.PlayerName }} -> ({{player.TeamName}})\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"MaxyRunsPlayer.hasError('required')\">Please choose a player</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Max Wickets By\" name=\"MaxyWicketsPlayer\" [formControl]=\"MaxyWicketsPlayer\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let player of players\" [value]=\"player.PlayerId\">\n            {{ player.PlayerName }} -> ({{player.TeamName}})\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"MaxyWicketsPlayer.hasError('required')\">Please choose a player</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Man of Match\" name=\"ManOfMatch\" [formControl]=\"MOM\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let player of players\" [value]=\"player.PlayerId\">\n            {{ player.PlayerName }} -> ({{player.TeamName}})\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"MOM.hasError('required')\">Please choose a player</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <mat-select placeholder=\"Boundary\" name=\"ddlBoundary\" [formControl]=\"ddlBoundary\" required>\n          <mat-option>--</mat-option>\n          <mat-option *ngFor=\"let item of Boundary\" [value]=\"item.BoundaryId\">\n            {{item.FromBoundary}} - {{item.ToBoundary}}\n          </mat-option>\n        </mat-select>\n        <mat-error *ngIf=\"ddlBoundary.hasError('required')\">Please choose Boundary</mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"form-group full-width-container\">\n      <mat-form-field>\n        <input matInput placeholder=\"No of 50's in match\" name=\"Fifties\" [formControl]=\"Fifties\" type=\"number\" required>\n        <mat-error *ngIf=\"Fifties.hasError('required')\">Please enter no of Fifties</mat-error>\n      </mat-form-field>\n    </div>\n    <br />\n    <div class=\"form-group full-width-container\">\n      <button mat-raised-button type=\"submit\" name=\"MakePrediction\" color=\"primary\">Make Prediction</button>\n    </div>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -620,10 +629,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MakePredictionComponent", function() { return MakePredictionComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
 
 
 var MakePredictionComponent = /** @class */ (function () {
-    function MakePredictionComponent() {
+    function MakePredictionComponent(fb) {
+        this.myGroup = fb.group({
+            'MatchId': [''],
+            'Winner': [''],
+            'ddlScore': [''],
+            'ddlWickets': [''],
+            'MaxyRunsPlayer': [''],
+            'MaxyWicketsPlayer': [''],
+            'MOM': [''],
+            'ddlBoundary': [''],
+            'Fifties': ['']
+        });
+        this.MatchId = this.myGroup.controls['MatchId'];
+        this.Winner = this.myGroup.controls['Winner'];
+        this.ddlScore = this.myGroup.controls['ddlScore'];
+        this.ddlWickets = this.myGroup.controls['ddlWickets'];
+        this.MaxyRunsPlayer = this.myGroup.controls['MaxyRunsPlayer'];
+        this.MaxyWicketsPlayer = this.myGroup.controls['MaxyWicketsPlayer'];
+        this.MOM = this.myGroup.controls['MOM'];
+        this.ddlBoundary = this.myGroup.controls['ddlBoundary'];
+        this.Fifties = this.myGroup.controls['Fifties'];
     }
     MakePredictionComponent.prototype.ngOnInit = function () {
     };
@@ -633,7 +664,7 @@ var MakePredictionComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./make-prediction.component.html */ "./src/app/pages/make-prediction/make-prediction.component.html"),
             styles: [__webpack_require__(/*! ./make-prediction.component.css */ "./src/app/pages/make-prediction/make-prediction.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
     ], MakePredictionComponent);
     return MakePredictionComponent;
 }());

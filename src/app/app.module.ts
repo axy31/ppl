@@ -19,6 +19,8 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { MatSelectChange, MatSelectModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,11 @@ import { environment } from 'src/environments/environment';
     FlexLayoutModule,
     RoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule
   ],
 
   providers: [AngularFirestore],
