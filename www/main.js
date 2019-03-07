@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-sidenav-container, mat-sidenav-content, mat-sidenav {\r\n    height: 100%;\r\n}\r\n\r\nmat-sidenav {\r\n    width: 250px;\r\n}\r\n\r\nmain {\r\n    padding: 10px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksWUFBWTtBQUNoQjs7QUFFQTtJQUNJLGFBQWE7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIm1hdC1zaWRlbmF2LWNvbnRhaW5lciwgbWF0LXNpZGVuYXYtY29udGVudCwgbWF0LXNpZGVuYXYge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG5tYXQtc2lkZW5hdiB7XHJcbiAgICB3aWR0aDogMjUwcHg7XHJcbn1cclxuXHJcbm1haW4ge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxufSJdfQ== */"
+module.exports = "mat-sidenav-container, mat-sidenav-content, mat-sidenav {\r\n    height: 100%;\r\n}\r\n\r\nmat-sidenav {\r\n    width: 250px;\r\n}\r\n\r\nmain {\r\n    padding: 10px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksWUFBWTtBQUNoQjs7QUFFQTtJQUNJLGFBQWE7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIm1hdC1zaWRlbmF2LWNvbnRhaW5lciwgbWF0LXNpZGVuYXYtY29udGVudCwgbWF0LXNpZGVuYXYge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG5tYXQtc2lkZW5hdiB7XHJcbiAgICB3aWR0aDogMjUwcHg7XHJcbn1cclxuXHJcbm1haW4ge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -165,7 +165,9 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_23__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_23__["ReactiveFormsModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatButtonModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatSortModule"]
             ],
             providers: [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_19__["AngularFirestore"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
@@ -543,7 +545,7 @@ var GeneralInfoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\r\n.mat-column-Rank\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-column-Name\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-column-Team\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-column-PurpleCap\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-column-OrangeCap\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-column-MVP\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-column-Points\r\n{\r\n    white-space:nowrap;\r\n}\r\n\r\n.mat-cell,.mat-header-cell\r\n{\r\n    padding-left: 10px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBOztJQUVJLGtCQUFrQjtBQUN0Qjs7QUFFQTs7SUFFSSxrQkFBa0I7QUFDdEI7O0FBRUE7O0lBRUksa0JBQWtCO0FBQ3RCOztBQUVBOztJQUVJLGtCQUFrQjtBQUN0Qjs7QUFFQTs7SUFFSSxrQkFBa0I7QUFDdEI7O0FBRUE7O0lBRUksa0JBQWtCO0FBQ3RCOztBQUVBOztJQUVJLGtCQUFrQjtBQUN0Qjs7QUFFQTs7SUFFSSxrQkFBa0I7QUFDdEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4ubWF0LWNvbHVtbi1SYW5rXHJcbntcclxuICAgIHdoaXRlLXNwYWNlOm5vd3JhcDtcclxufVxyXG5cclxuLm1hdC1jb2x1bW4tTmFtZVxyXG57XHJcbiAgICB3aGl0ZS1zcGFjZTpub3dyYXA7XHJcbn1cclxuXHJcbi5tYXQtY29sdW1uLVRlYW1cclxue1xyXG4gICAgd2hpdGUtc3BhY2U6bm93cmFwO1xyXG59XHJcblxyXG4ubWF0LWNvbHVtbi1QdXJwbGVDYXBcclxue1xyXG4gICAgd2hpdGUtc3BhY2U6bm93cmFwO1xyXG59XHJcblxyXG4ubWF0LWNvbHVtbi1PcmFuZ2VDYXBcclxue1xyXG4gICAgd2hpdGUtc3BhY2U6bm93cmFwO1xyXG59XHJcblxyXG4ubWF0LWNvbHVtbi1NVlBcclxue1xyXG4gICAgd2hpdGUtc3BhY2U6bm93cmFwO1xyXG59XHJcblxyXG4ubWF0LWNvbHVtbi1Qb2ludHNcclxue1xyXG4gICAgd2hpdGUtc3BhY2U6bm93cmFwO1xyXG59XHJcblxyXG4ubWF0LWNlbGwsLm1hdC1oZWFkZXItY2VsbFxyXG57XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -554,7 +556,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }} !!\n  </h1>\n\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li class=\"text\" *ngFor=\"let item of items | async\">\n    {{item.name}}\n  </li>\n</ul>"
+module.exports = "<div class=\"bodycontent mat-elevation-z8\">\n  <div class=\"scrollable-div\">\n    <table mat-table [dataSource]=\"dataSource\" matSort>\n\n      <!-- Position Column -->\n      <ng-container matColumnDef=\"Rank\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.Rank}} </td>\n      </ng-container>\n\n      <!-- Name Column -->\n      <ng-container matColumnDef=\"Name\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.Name}} </td>\n      </ng-container>\n\n      <!-- Weight Column -->\n      <ng-container matColumnDef=\"Team\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Team </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.Team}} </td>\n      </ng-container>\n\n      <!-- Symbol Column -->\n      <ng-container matColumnDef=\"PurpleCap\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Purple Cap </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.PurpleCap}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"OrangeCap\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Orange Cap </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.OrangeCap}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"MVP\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> MVP </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.MVP}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"Points\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Points </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.Points}} </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -570,23 +572,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 
 
 
+var Prediction = [
+    { "Name": "Shubhanshu Raj", "Points": "804", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Chintan", "Points": "866", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Jay", "Points": "930", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Rakesh", "Points": "959", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Kirankumar", "Points": "1001", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Rohan Jethwani", "Points": "1018", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Vrushali", "Points": "1089", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Kane Williamson" },
+    { "Name": "Ace AM", "Points": "1135", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Shrikant", "Points": "1167", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Amit Roymazumder", "Points": "1182", "Team": "SRH", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Abhijit", "Points": "1184", "Team": "SRH", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Akshay", "Points": "1285", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Siddarth Kaul", "MVP": "Sunil Narine" },
+    { "Name": "Chirag Shah", "Points": "1337", "Team": "SRH", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Ga Ma", "Points": "1378", "Team": "CSK", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Rashid Khan", "MVP": "Rishabh Pant" },
+    { "Name": "Anirudh", "Points": "1385", "Team": "SRH", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "Srishti", "Points": "1412", "Team": "SRH", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Andrew Tye", "MVP": "Sunil Narine" },
+    { "Name": "RF", "Points": "1494", "Team": "SRH", "Rank": "1", "OrangeCap": "Kane Williamson", "PurpleCap": "Rashid Khan", "MVP": "Kane Williamson" }
+];
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(db) {
-        this.items = db.collection("items").valueChanges();
+    function HomeComponent() {
+        this.displayedColumns = ['Rank', 'Name', 'Team', 'PurpleCap', 'OrangeCap', 'MVP', 'Points'];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](Prediction);
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.dataSource.sort = this.sort;
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+    ], HomeComponent.prototype, "sort", void 0);
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/pages/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/pages/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], HomeComponent);
     return HomeComponent;
 }());

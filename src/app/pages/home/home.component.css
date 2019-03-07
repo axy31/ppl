@@ -1,0 +1,40 @@
+
+.mat-column-Rank
+{
+    white-space:nowrap;
+}
+
+.mat-column-Name
+{
+    white-space:nowrap;
+}
+
+.mat-column-Team
+{
+    white-space:nowrap;
+}
+
+.mat-column-PurpleCap
+{
+    white-space:nowrap;
+}
+
+.mat-column-OrangeCap
+{
+    white-space:nowrap;
+}
+
+.mat-column-MVP
+{
+    white-space:nowrap;
+}
+
+.mat-column-Points
+{
+    white-space:nowrap;
+}
+
+.mat-cell,.mat-header-cell
+{
+    padding-left: 10px;
+}

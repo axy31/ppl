@@ -22,3 +22,14 @@ html, body {
 	margin: auto;
 	overflow: hidden;
 }
+
+.scrollable-div
+{
+	overflow: auto;
+	position: relative;
+}
+
+table {
+	width: 100%;
+	border: black 1px;	
+  }

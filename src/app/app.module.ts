@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -19,7 +19,7 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { MatSelectChange, MatSelectModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatSelectChange, MatSelectModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -34,7 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PredictionArchiveComponent,
     GeneralInfoComponent,
     ConfigComponent,
-    UserLoginComponent, 
+    UserLoginComponent,
     UserProfileComponent
   ],
   imports: [
@@ -48,10 +48,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatSortModule
   ],
 
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
