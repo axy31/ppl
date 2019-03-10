@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, AbstractControl, FormBuilder } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, AbstractControl, FormBuilder } from "@angular/forms";
 
 @Component({
-  selector: 'app-make-prediction',
-  templateUrl: './make-prediction.component.html',
-  styleUrls: ['./make-prediction.component.css']
+  selector: "app-make-prediction",
+  templateUrl: "./make-prediction.component.html",
+  styleUrls: ["./make-prediction.component.css"]
 })
 export class MakePredictionComponent implements OnInit {
-
   responseData: {};
   myGroup: FormGroup;
   MatchId: AbstractControl;
@@ -30,29 +29,26 @@ export class MakePredictionComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.myGroup = fb.group({
-      'MatchId': [''],
-      'Winner': [''],
-      'ddlScore': [''],
-      'ddlWickets': [''],
-      'MaxyRunsPlayer': [''],
-      'MaxyWicketsPlayer': [''],
-      'MOM': [''],
-      'ddlBoundary': [''],
-      'Fifties': ['']
+      MatchId: [""],
+      Winner: [""],
+      ddlScore: [""],
+      ddlWickets: [""],
+      MaxyRunsPlayer: [""],
+      MaxyWicketsPlayer: [""],
+      MOM: [""],
+      ddlBoundary: [""],
+      Fifties: [""]
     });
-    this.MatchId = this.myGroup.controls['MatchId'];
-    this.Winner = this.myGroup.controls['Winner'];
-    this.ddlScore = this.myGroup.controls['ddlScore'];
-    this.ddlWickets = this.myGroup.controls['ddlWickets'];
-    this.MaxyRunsPlayer = this.myGroup.controls['MaxyRunsPlayer'];
-    this.MaxyWicketsPlayer = this.myGroup.controls['MaxyWicketsPlayer'];
-    this.MOM = this.myGroup.controls['MOM'];
-    this.ddlBoundary = this.myGroup.controls['ddlBoundary'];
-    this.Fifties = this.myGroup.controls['Fifties'];
-
+    this.MatchId = this.myGroup.controls["MatchId"];
+    this.Winner = this.myGroup.controls["Winner"];
+    this.ddlScore = this.myGroup.controls["ddlScore"];
+    this.ddlWickets = this.myGroup.controls["ddlWickets"];
+    this.MaxyRunsPlayer = this.myGroup.controls["MaxyRunsPlayer"];
+    this.MaxyWicketsPlayer = this.myGroup.controls["MaxyWicketsPlayer"];
+    this.MOM = this.myGroup.controls["MOM"];
+    this.ddlBoundary = this.myGroup.controls["ddlBoundary"];
+    this.Fifties = this.myGroup.controls["Fifties"];
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
