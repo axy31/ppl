@@ -29,6 +29,7 @@ import {
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from './users/user-register/user-register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { UserRegisterComponent } from './users/user-register/user-register.compo
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    HttpClientModule
   ],
 
   providers: [AngularFirestore],
