@@ -2,7 +2,7 @@
   <form (ngSubmit)="makePrediction()" [formGroup]="myGroup">
     <div class="form-group full-width-container">
       <mat-form-field>
-        <mat-select placeholder="Match" name="Match" [formControl]="MatchId" required>
+        <mat-select placeholder="Match" name="Match" [formControl]="MatchId" (selectionChange)="GetWinners()" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let item of matches" [value]="item.MatchId">
             {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}
@@ -16,8 +16,11 @@
       <mat-form-field>
         <mat-select placeholder="Winner" name="Winner" [formControl]="Winner" required>
           <mat-option>--</mat-option>
-          <mat-option *ngFor="let team of teams" [value]="team.TeamId">
-            {{ team.TeamName }}
+          <mat-option *ngIf="(teams)" [value]="(teams.TeamA)">
+            {{teams.TeamA}}
+          </mat-option>
+          <mat-option *ngIf="(teams)" [value]="(teams.TeamB)">
+            {{teams.TeamB}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="Winner.hasError('required')">Please choose a winner</mat-error>

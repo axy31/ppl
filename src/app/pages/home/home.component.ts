@@ -14,18 +14,22 @@ export class HomeComponent implements OnInit {
   dataSource = new MatTableDataSource<homeObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService) {
-    //this.dataSource = new MatTableDataSource(Prediction);
+  constructor(private api: ApiCallService) {    
   }
 
-  ngOnInit() {
-    this.dataSource.sort = this.sort;
+  UserRankDetails()
+  {
     this.api.getuserRankDetails()
     .subscribe(res => {
-      this.dataSource.data = res;
-      console.log(this.dataSource);
+      this.dataSource.data = res;      
+      this.dataSource.sort = this.sort;
     }, err => {
       console.log(err);
     });
+  }
+
+  ngOnInit() {
+    this.UserRankDetails();    
+    
   }
 }
