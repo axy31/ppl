@@ -7,6 +7,7 @@ import { MatchDetailsObject } from '../objects/MatchDetailsObject';
 import { scoreRangeObject } from '../objects/scoreRangeObject';
 import { wicketRangeObject } from '../objects/wicketRangeObject';
 import { boundaryRangeObject } from '../objects/boundaryRangeObject';
+import { teamObject } from '../objects/teamObject';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -76,6 +77,14 @@ export class ApiCallService {
       .pipe(
         tap(rankDetails => console.log('fetched getPlayersInTeam')),
         catchError(this.handleError('getPlayersInTeam', []))
+      );
+  }
+
+  getTeams(): Observable<teamObject[]> {
+    return this.http.get<teamObject[]>(apiUrl + 'teams')
+      .pipe(
+        tap(rankDetails => console.log('fetched teams')),
+        catchError(this.handleError('teams', []))
       );
   }
 

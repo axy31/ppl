@@ -1,19 +1,31 @@
-<h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="bodycontent">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <input matInput placeholder="Username" [formControl]="Username" name="Username" type="text" required>
+        <mat-error *ngIf="Username.hasError('required')">Please enter Username</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <input matInput placeholder="Password" [formControl]="Password" name="Password" type="text" required>
+        <mat-error *ngIf="Password.hasError('required')">Please enter Password</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <table class="example-full-width" cellspacing="0">
     <tr>
       <td>
-        <div class="form-group">
-          <mat-form-field class="example-full-width">
-            <label for="username">Username</label>
-
+        <div class="form-group full-width-container">
             <input matInput placeholder="Username" type="text" formControlName="username" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
             <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
               <div *ngIf="f.username.errors.required">Username is required</div>
 
             </div>
-          </mat-form-field>
         </div>
       </td>
     </tr>
@@ -41,8 +53,14 @@
       </td>
 
     </tr>
-  </table>
-</form>
+  </table> -->
+    <div class="form-group full-width-container">
+      <button mat-raised-button [disabled]="loading" type="submit" name="Login" color="primary">Login</button>
+      <a mat-button [routerLink]="['/register']" class="btn btn-link">Register</a>
+    </div>
+  </form>
+</div>
+
 
 <!-- 
 <mat-card class="example-card">

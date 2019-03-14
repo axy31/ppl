@@ -1,7 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AbstractControl } from "@angular/forms";
+
 import { first } from "rxjs/operators";
+import { ApiCallService } from 'src/app/core/api-call.service';
 @Component({
   selector: "app-user-login",
   templateUrl: "./user-login.component.html",
@@ -12,8 +15,10 @@ export class UserLoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  Username: AbstractControl;
+  Password: AbstractControl;
 
-  constructor(
+  constructor(private api: ApiCallService, fb: FormBuilder,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router // private authenticationService: AuthenticationService,
@@ -23,14 +28,16 @@ export class UserLoginComponent implements OnInit {
     //if (this.authenticationService.currentUserValue) {
     // this.router.navigate(["/"]);
     //}
+
+    this.loginForm = fb.group({
+      Username: [""],
+      Password: [""]
+    });
+    this.Username = this.loginForm.controls["Username"];
+    this.Password = this.loginForm.controls["Password"];
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: ["", Validators.required],
-      password: ["", Validators.required]
-    });
-
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
   }

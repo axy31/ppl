@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, AbstractControl, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ToasterService } from "angular2-toaster";
+import { teamObject } from 'src/app/objects/teamObject';
+import { ApiCallService } from 'src/app/core/api-call.service';
 
 @Component({
   selector: "app-user-register",
@@ -23,9 +25,9 @@ export class UserRegisterComponent implements OnInit {
   responseData: any;
 
   players: any;
-  teams: any;
+  teams: teamObject[];
 
-  constructor(
+  constructor(private api: ApiCallService,
     private router: Router,
     fb: FormBuilder
     // private _ApplicationServiceService: ApplicationServiceService,
@@ -54,11 +56,24 @@ export class UserRegisterComponent implements OnInit {
     this.MVP = this.myGroup.controls["MVP"];
   }
 
-  ngOnInit() {}
+  async getTeams() {
+    await this.api.getTeams()
+      .subscribe(res => {
+        this.teams = res;
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
+  }
+
+  ngOnInit() {
+    this.getTeams();
+
+  }
 
   ngAfterViewInit() {
     (window as any).initialize();
   }
 
-  registerUser() {}
+  registerUser() { }
 }
