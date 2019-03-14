@@ -10,6 +10,7 @@ import { boundaryRangeObject } from '../objects/boundaryRangeObject';
 import { teamObject } from '../objects/teamObject';
 import { loginObject } from '../objects/LoginObject';
 import { playerListObject } from '../objects/playerListObject';
+import { registerationObject } from '../objects/registerationObject';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,7 +36,6 @@ export class ApiCallService {
   getuserRankDetails(): Observable<homeObject[]> {
     return this.http.get<homeObject[]>(apiUrl + 'userRankDetails')
       .pipe(
-        tap(rankDetails => console.log('fetched userRankDetails')),
         catchError(this.handleError('userRankDetails', []))
       );
   }
@@ -43,7 +43,6 @@ export class ApiCallService {
   getMatchDetails(): Observable<MatchDetailsObject[]> {
     return this.http.get<MatchDetailsObject[]>(apiUrl + 'matchDetails')
       .pipe(
-        tap(rankDetails => console.log('fetched matchDetails')),
         catchError(this.handleError('matchDetails', []))
       );
   }
@@ -52,7 +51,6 @@ export class ApiCallService {
   getScoreRange(): Observable<scoreRangeObject[]> {
     return this.http.get<scoreRangeObject[]>(apiUrl + 'scoreRange')
       .pipe(
-        tap(rankDetails => console.log('fetched scoreRange')),
         catchError(this.handleError('scoreRange', []))
       );
   }
@@ -60,7 +58,6 @@ export class ApiCallService {
   getWicketRange(): Observable<wicketRangeObject[]> {
     return this.http.get<wicketRangeObject[]>(apiUrl + 'wicketRange')
       .pipe(
-        tap(rankDetails => console.log('fetched wicketRange')),
         catchError(this.handleError('wicketRange', []))
       );
   }
@@ -68,16 +65,13 @@ export class ApiCallService {
   getBoundaryRange(): Observable<boundaryRangeObject[]> {
     return this.http.get<boundaryRangeObject[]>(apiUrl + 'boundaryRange')
       .pipe(
-        tap(rankDetails => console.log('fetched boundaryRange')),
         catchError(this.handleError('boundaryRange', []))
       );
   }
 
-  getPlayersInTeam(object: playerListObject): Observable<any[]> {
-    console.log(object);
+  getPlayersInTeam(object: playerListObject): Observable<any[]> {    
     return this.http.post<any[]>(apiUrl + 'getPlayersInTeam', object, httpOptions)
       .pipe(
-        tap(rankDetails => console.log('fetched getPlayersInTeam')),
         catchError(this.handleError('getPlayersInTeam', []))
       );
   }
@@ -85,7 +79,6 @@ export class ApiCallService {
   doLogin(object: loginObject): Observable<any[]> {
     return this.http.post<any[]>(apiUrl + 'login', object, httpOptions)
       .pipe(
-        tap(rankDetails => console.log('login')),
         catchError(this.handleError('login', []))
       );
   }
@@ -93,7 +86,6 @@ export class ApiCallService {
   getTeams(): Observable<teamObject[]> {
     return this.http.get<teamObject[]>(apiUrl + 'teams')
       .pipe(
-        tap(rankDetails => console.log('fetched teams')),
         catchError(this.handleError('teams', []))
       );
   }
@@ -101,8 +93,14 @@ export class ApiCallService {
   getPlayerList(): Observable<playerListObject[]> {
     return this.http.get<playerListObject[]>(apiUrl + 'teamPlayerList')
       .pipe(
-        tap(rankDetails => console.log('fetched teamPlayerList')),
         catchError(this.handleError('teamPlayerList', []))
+      );
+  }
+
+  doRegister(object: registerationObject): Observable<registerationObject[]> {
+    return this.http.post<any[]>(apiUrl + 'signUp', object, httpOptions)    
+      .pipe(
+        catchError(this.handleError('signUp', []))
       );
   }
 

@@ -51,9 +51,8 @@ export class UserLoginComponent implements OnInit {
     this.loading = true;
     await this.api.doLogin(this.loginForm.value)
       .subscribe(res => {
-        console.log(res);
-      }, err => {
-        console.log(err);
+        this.router.navigateByUrl('/home');        
+      }, err => {        
         this.loading = false;
       });
       this.loading = false;

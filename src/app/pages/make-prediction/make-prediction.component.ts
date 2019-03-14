@@ -117,4 +117,8 @@ export class MakePredictionComponent implements OnInit {
     this.getWicketRange();
     this.getBoundaryRange();
   }
+
+  makePrediction() {
+
+  }
 }

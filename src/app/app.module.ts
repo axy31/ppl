@@ -30,6 +30,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from './users/user-register/user-register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EqualValidator  } from './directive/passwordmatch.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     ConfigComponent,
     UserLoginComponent,
     UserProfileComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    EqualValidator
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,6 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     FlexLayoutModule,
     RoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
@@ -64,7 +65,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
 
-  providers: [AngularFirestore],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

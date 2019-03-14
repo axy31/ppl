@@ -19,6 +19,7 @@
       <mat-form-field>
         <input matInput placeholder="Mobile Number" name="MobileNumber" [formControl]="MobileNo" type="number" required>
         <mat-error *ngIf="MobileNo.hasError('required')">Please enter Mobile Number</mat-error>
+        <mat-error *ngIf="MobileNo.dirty && (!MobileNo.hasError('required'))">Please enter 10 digits</mat-error>        
       </mat-form-field>
     </div>
 
@@ -32,8 +33,9 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <input matInput placeholder="Re enter Password" name="RePassword" [formControl]="RePassword" type="password"
-          required>
+          required validateEqual="Password">
         <mat-error *ngIf="RePassword.hasError('required')">Please Reenter Password</mat-error>
+        <mat-error *ngIf="!RePassword.valid && (!RePassword.hasError('required'))">Passwords do not match</mat-error>
       </mat-form-field>
     </div>
 
@@ -85,7 +87,7 @@
     </div>
 
     <div class="form-group full-width-container">
-      <button mat-raised-button type="submit" name="Register" color="primary">Register</button>
+      <button [disabled]='!myGroup.valid || loading' mat-raised-button type="submit" name="Register" color="primary">Register</button>
     </div>
   </form>
 </div>
