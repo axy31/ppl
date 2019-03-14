@@ -12,6 +12,14 @@ html, body {
 	flex-direction: column;
 }
 
+.half-width-container {
+	display: flex;
+}
+
+.half-width-container>* {
+	width: 50%;
+}
+
 .full-width-container>* {
 	width: 100%;
 }

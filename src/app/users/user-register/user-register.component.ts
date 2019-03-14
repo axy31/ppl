@@ -72,7 +72,6 @@ export class UserRegisterComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    (window as any).initialize();
   }
 
   registerUser() { }
