@@ -54,7 +54,7 @@
         <mat-select placeholder="Orange Cap" name="OrangeCap" [formControl]="OrangeCap" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
-            {{ player.PlayerName }} -> ({{player.TeamName}}) -> ({{player.PlayerType}})
+            {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
         </mat-select>
         <mat-error *ngIf="OrangeCap.hasError('required')">Please choose Orange Cap Winner</mat-error>
@@ -65,7 +65,7 @@
         <mat-select placeholder="Purple Cap" name="PurpleCap" [formControl]="PurpleCap" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
-            {{ player.PlayerName }} -> ({{player.TeamName}}) -> ({{player.PlayerType}})
+            {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
         </mat-select>
         <mat-error *ngIf="PurpleCap.hasError('required')">Please choose Purple Cap Winner</mat-error>
@@ -77,7 +77,7 @@
         <mat-select placeholder="Most Valueable Player" name="MVP" [formControl]="MVP" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
-            {{ player.PlayerName }} -> ({{player.TeamName}}) -> ({{player.PlayerType}})
+            {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
         </mat-select>
         <mat-error *ngIf="MVP.hasError('required')">Please choose Most Valueable Player </mat-error>

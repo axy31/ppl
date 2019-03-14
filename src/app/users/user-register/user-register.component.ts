@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { ToasterService } from "angular2-toaster";
 import { teamObject } from 'src/app/objects/teamObject';
 import { ApiCallService } from 'src/app/core/api-call.service';
+import { playerListObject } from 'src/app/objects/playerListObject';
 
 @Component({
   selector: "app-user-register",
@@ -24,7 +25,7 @@ export class UserRegisterComponent implements OnInit {
   MVP: AbstractControl;
   responseData: any;
 
-  players: any;
+  players: playerListObject[];
   teams: teamObject[];
 
   constructor(private api: ApiCallService,
@@ -66,8 +67,19 @@ export class UserRegisterComponent implements OnInit {
       });
   }
 
+  async getPlayerList() {
+    await this.api.getPlayerList()
+      .subscribe(res => {
+        this.players = res;
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
+  }
+
   ngOnInit() {
     this.getTeams();
+    this.getPlayerList();
 
   }
 

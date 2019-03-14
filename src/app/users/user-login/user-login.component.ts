@@ -47,15 +47,26 @@ export class UserLoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
-    this.submitted = true;
+  async doLogin() {
+    this.loading = true;
+    await this.api.doLogin(this.loginForm.value)
+      .subscribe(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+        this.loading = false;
+      });
+      this.loading = false;
+  }
 
+  onSubmit() {
+    this.submitted = true;        
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
-
-    this.loading = true;
+    this.doLogin();
+    
     // this.authenticationService
     //  .login(this.f.username.value, this.f.password.value)
     // .pipe(first())
