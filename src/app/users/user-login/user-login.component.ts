@@ -50,8 +50,21 @@ export class UserLoginComponent implements OnInit {
   async doLogin() {
     this.loading = true;
     await this.api.doLogin(this.loginForm.value)
-      .subscribe(res => {
-        this.router.navigateByUrl('/home');        
+      .subscribe(res => {        
+        if (res["status"] === "success")
+        {
+          localStorage.setItem("Access",res["Access"]);
+          localStorage.setItem("MobileNo",res["MobileNo"]);
+          localStorage.setItem("Name",res["Name"]);
+          localStorage.setItem("Team",res["Team"]);
+          localStorage.setItem("UserName",res["UserName"]);
+          this.router.navigateByUrl('/home');        
+        }
+        else
+        {
+          alert(res["message"]);
+        }
+        
       }, err => {        
         this.loading = false;
       });

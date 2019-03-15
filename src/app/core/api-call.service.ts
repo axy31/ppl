@@ -98,9 +98,18 @@ export class ApiCallService {
   }
 
   doRegister(object: registerationObject): Observable<registerationObject[]> {
-    return this.http.post<any[]>(apiUrl + 'signUp', object, httpOptions)    
+    return this.http.post<registerationObject[]>(apiUrl + 'signUp', object, httpOptions)    
       .pipe(
         catchError(this.handleError('signUp', []))
+      );
+  }
+
+  getPreviousPrediction(): Observable<any[]> {
+    var object = {}
+    object['UserName'] = localStorage.getItem("UserName");    
+    return this.http.post<any[]>(apiUrl + 'GetpreviousPrediction',object,httpOptions)
+      .pipe(
+        catchError(this.handleError('GetpreviousPrediction', []))
       );
   }
 

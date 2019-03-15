@@ -15,7 +15,7 @@ export class PreviousPredictionsComponent implements OnInit {
     "Wickets",
     "Winner",
     "RunScorer",
-    "WiicketTaker",
+    "WicketTaker",
     "ManOfMatch",
     "Fifties",
     "Boundaries",
