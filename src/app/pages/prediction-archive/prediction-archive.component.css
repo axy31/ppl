@@ -1,0 +1,48 @@
+.mat-column-Name {
+    white-space: nowrap;
+}
+
+.mat-column-MatchWinner {
+    white-space: nowrap;
+}
+
+.mat-column-Score {
+    white-space: nowrap;
+}
+
+.mat-column-Wicket {
+    white-space: nowrap;
+}
+
+.mat-column-RunScorer {
+    white-space: nowrap;
+}
+
+.mat-column-WicketTaker {
+    white-space: nowrap;
+}
+
+.mat-column-ManOfMatch {
+    white-space: nowrap;
+}
+
+.mat-column-Fifties {    
+    white-space: nowrap;
+}
+
+.mat-column-Boundaries {
+    white-space: nowrap;
+}
+
+.mat-column-ModifiedDate {
+    white-space: nowrap;
+}
+
+.mat-column-Points {
+    white-space: nowrap;
+}
+
+
+.mat-cell, .mat-header-cell {
+    padding-left: 10px;
+}

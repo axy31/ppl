@@ -19,7 +19,6 @@ export class UserLoginComponent implements OnInit {
   Password: AbstractControl;
 
   constructor(private api: ApiCallService, fb: FormBuilder,
-    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router // private authenticationService: AuthenticationService,
   ) // private alertService: AlertService

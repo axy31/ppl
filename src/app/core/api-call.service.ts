@@ -69,7 +69,7 @@ export class ApiCallService {
       );
   }
 
-  getPlayersInTeam(object: playerListObject): Observable<any[]> {    
+  getPlayersInTeam(object: playerListObject): Observable<any[]> {
     return this.http.post<any[]>(apiUrl + 'getPlayersInTeam', object, httpOptions)
       .pipe(
         catchError(this.handleError('getPlayersInTeam', []))
@@ -98,7 +98,7 @@ export class ApiCallService {
   }
 
   doRegister(object: registerationObject): Observable<registerationObject[]> {
-    return this.http.post<registerationObject[]>(apiUrl + 'signUp', object, httpOptions)    
+    return this.http.post<registerationObject[]>(apiUrl + 'signUp', object, httpOptions)
       .pipe(
         catchError(this.handleError('signUp', []))
       );
@@ -106,10 +106,24 @@ export class ApiCallService {
 
   getPreviousPrediction(): Observable<any[]> {
     var object = {}
-    object['UserName'] = localStorage.getItem("UserName");    
-    return this.http.post<any[]>(apiUrl + 'GetpreviousPrediction',object,httpOptions)
+    object['UserName'] = localStorage.getItem("UserName");
+    return this.http.post<any[]>(apiUrl + 'GetpreviousPrediction', object, httpOptions)
       .pipe(
         catchError(this.handleError('GetpreviousPrediction', []))
+      );
+  }
+
+
+  GetMatchHistory(): Observable<any[]> {
+    return this.http.get<any[]>(apiUrl + 'GetMatchHistory')
+      .pipe(
+        catchError(this.handleError('GetMatchHistory', []))
+      );
+  }
+  getPredictionArchive(object): Observable<any[]> {
+    return this.http.post<any[]>(apiUrl + 'GetpredictionHistory', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('GetpredictionHistory', []))
       );
   }
 

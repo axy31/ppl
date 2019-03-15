@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { predictionArchiveObject } from "src/app/objects/predictionArchiveObject";
 import { ApiCallService } from "src/app/core/api-call.service";
 import { MatTableDataSource, MatSort } from "@angular/material";
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: "app-prediction-archive",
@@ -9,6 +10,10 @@ import { MatTableDataSource, MatSort } from "@angular/material";
   styleUrls: ["./prediction-archive.component.css"]
 })
 export class PredictionArchiveComponent implements OnInit {
+  myGroup: FormGroup;
+  MatchId: AbstractControl;
+  matches: any[];
+
   displayedColumns: string[] = [
     "Name",
     "MatchWinner",
@@ -25,10 +30,16 @@ export class PredictionArchiveComponent implements OnInit {
   dataSource = new MatTableDataSource<predictionArchiveObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService) {}
+  constructor(private api: ApiCallService, private fb: FormBuilder) {
 
-  predictionArchieve() {
-    this.api.getPredictionArchieve().subscribe(
+    this.myGroup = fb.group({
+      MatchId: [""]
+    });
+    this.MatchId = this.myGroup.controls["MatchId"];
+  }
+
+  getPredictionArchive() {
+    this.api.getPredictionArchive(this.myGroup.value).subscribe(
       res => {
         this.dataSource.data = res;
         this.dataSource.sort = this.sort;
@@ -40,6 +51,18 @@ export class PredictionArchiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.predictionArchieve();
+    this.GetMatchHistory();
+  }
+
+  async GetMatchHistory() {
+    await this.api.GetMatchHistory().subscribe(
+      res => {
+        this.matches = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
+
