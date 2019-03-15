@@ -30,7 +30,9 @@ import {
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from './users/user-register/user-register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EqualValidator  } from './directive/passwordmatch.directive';
+import { EqualValidator } from './directive/passwordmatch.directive';
+import { NoAuthGuard } from './routing/NoAuthGuard';
+import { isLoggedIn } from './routing/isLoggedIn';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,7 @@ import { EqualValidator  } from './directive/passwordmatch.directive';
     HttpClientModule
   ],
 
-  providers: [],
+  providers: [isLoggedIn, NoAuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

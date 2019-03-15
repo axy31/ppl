@@ -4,14 +4,20 @@ import { Observable, of as observableOf } from 'rxjs';
 
 @Injectable()
 export class NoAuthGuard implements CanActivate {
-    constructor() { }
-    canActivate(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
-    ): Observable<boolean> {
-        if (localStorage.getItem("Access") === "Admin")
-            return observableOf(true);
-        else
-            return observableOf(false);
+    constructor(private router: Router) { }
+    canActivate() {
+        if (localStorage.getItem("UserName") === null) {
+            alert("log in");
+            this.router.navigate(['/login']);
+            return false;
+        }
+        else if (localStorage.getItem("Access") === "Admin") {
+            return true;
+        }
+        else {
+            alert("log in as admin");
+            this.router.navigate(['/home']);
+            return false;
+        }
     }
 }

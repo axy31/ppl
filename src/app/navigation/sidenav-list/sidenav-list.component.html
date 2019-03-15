@@ -4,11 +4,11 @@
     <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
   </a>
 
-  <a mat-list-item routerLink="/makeprediction" (click)="onSidenavClose()">
+  <a *ngIf="api.isLoggedIn" mat-list-item routerLink="/makeprediction" (click)="onSidenavClose()">
     <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Make Prediction</span>
   </a>
 
-  <a mat-list-item routerLink="/previousprediction" (click)="onSidenavClose()">
+  <a *ngIf="api.isLoggedIn" mat-list-item routerLink="/previousprediction" (click)="onSidenavClose()">
     <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Previous Predictions</span>
   </a>
 
@@ -16,7 +16,7 @@
     <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Prediction Archive</span>
   </a>
 
-  <a mat-list-item routerLink="/config" (click)="onSidenavClose()">
+  <a *ngIf="api.isAdmin" mat-list-item routerLink="/config" (click)="onSidenavClose()">
     <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Config</span>
   </a>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { ApiCallService } from 'src/app/core/api-call.service';
 
 @Component({
   selector: "app-header",
@@ -8,9 +9,9 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
 
-  constructor() {}
+  constructor(public api: ApiCallService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   public generalInfo() {
     console.log("pressed general info ");
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public onToggleSidenav = () => {
+    this.api.checkIfAdmin();
     this.sidenavToggle.emit();
   };
 }

@@ -23,7 +23,18 @@ const apiUrl = 'http://ec2-52-66-210-236.ap-south-1.compute.amazonaws.com/api/v1
 })
 export class ApiCallService {
 
-  constructor(private http: HttpClient) { }
+  isAdmin: Boolean = false;
+  isLoggedIn: Boolean = false;
+  constructor(private http: HttpClient) {
+  }
+
+  public checkIfAdmin() {
+    if (localStorage.getItem("UserName") === null)
+      this.isAdmin = false;
+    else 
+      this.isLoggedIn = true;
+    this.isAdmin = (localStorage.getItem('Access') === 'Admin');
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

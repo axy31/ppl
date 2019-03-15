@@ -10,10 +10,11 @@ import { ConfigComponent } from "../pages/config/config.component";
 import { UserLoginComponent } from "../users/user-login/user-login.component";
 import { UserRegisterComponent } from "../users/user-register/user-register.component";
 import { NoAuthGuard } from './NoAuthGuard';
+import { isLoggedIn } from './isLoggedIn';
 const routes: Routes = [
   { path: "home", component: HomeComponent },
-  { path: "makeprediction", component: MakePredictionComponent },
-  { path: "previousprediction", component: PreviousPredictionsComponent },
+  { path: "makeprediction", component: MakePredictionComponent, canActivate: [isLoggedIn] },
+  { path: "previousprediction", component: PreviousPredictionsComponent, canActivate: [isLoggedIn] },
   { path: "predictionarchive", component: PredictionArchiveComponent },
   { path: "generalinfo", component: GeneralInfoComponent },
   { path: "config", component: ConfigComponent, canActivate: [NoAuthGuard] },
