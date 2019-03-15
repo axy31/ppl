@@ -16,17 +16,7 @@ import { GeneralInfoComponent } from "./pages/general-info/general-info.componen
 import { ConfigComponent } from "./pages/config/config.component";
 import { UserLoginComponent } from "./users/user-login/user-login.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { AngularFireModule } from "@angular/fire";
-import { environment } from "src/environments/environment";
-import {
-  MatSelectChange,
-  MatSelectModule,
-  MatInputModule,
-  MatButtonModule,
-  MatTableModule,
-  MatSortModule
-} from "@angular/material";
+import { MatSelectModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from './users/user-register/user-register.component';
 import { HttpClientModule } from '@angular/common/http';
