@@ -9,13 +9,14 @@ import { GeneralInfoComponent } from "../pages/general-info/general-info.compone
 import { ConfigComponent } from "../pages/config/config.component";
 import { UserLoginComponent } from "../users/user-login/user-login.component";
 import { UserRegisterComponent } from "../users/user-register/user-register.component";
+import { NoAuthGuard } from './NoAuthGuard';
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "makeprediction", component: MakePredictionComponent },
   { path: "previousprediction", component: PreviousPredictionsComponent },
   { path: "predictionarchive", component: PredictionArchiveComponent },
   { path: "generalinfo", component: GeneralInfoComponent },
-  { path: "config", component: ConfigComponent },
+  { path: "config", component: ConfigComponent, canActivate: [NoAuthGuard] },
   { path: "login", component: UserLoginComponent },
   { path: "register", component: UserRegisterComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" }
@@ -26,4 +27,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
-export class RoutingModule {}
+export class RoutingModule { }
