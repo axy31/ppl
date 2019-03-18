@@ -2,9 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AbstractControl } from "@angular/forms";
-
-import { first } from "rxjs/operators";
 import { ApiCallService } from 'src/app/core/api-call.service';
+import { ToasterService } from 'src/app/core/toaster.service';
 @Component({
   selector: "app-user-login",
   templateUrl: "./user-login.component.html",
@@ -19,7 +18,7 @@ export class UserLoginComponent implements OnInit {
   Password: AbstractControl;
 
   constructor(private api: ApiCallService, fb: FormBuilder,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute, private toaster: ToasterService,
     private router: Router // private authenticationService: AuthenticationService,
   ) // private alertService: AlertService
   {
@@ -49,35 +48,35 @@ export class UserLoginComponent implements OnInit {
   async doLogin() {
     this.loading = true;
     await this.api.doLogin(this.loginForm.value)
-      .subscribe(res => {        
-        if (res["status"] === "success")
-        {
-          localStorage.setItem("Access",res["Access"]);
-          localStorage.setItem("MobileNo",res["MobileNo"]);
-          localStorage.setItem("Name",res["Name"]);
-          localStorage.setItem("Team",res["Team"]);
-          localStorage.setItem("UserName",res["UserName"]);
-          this.router.navigateByUrl('/home');        
+      .subscribe(res => {
+        if (res["status"] === "success") {
+          localStorage.setItem("Access", res["Access"]);
+          localStorage.setItem("MobileNo", res["MobileNo"]);
+          localStorage.setItem("Name", res["Name"]);
+          localStorage.setItem("Team", res["Team"]);
+          localStorage.setItem("UserName", res["UserName"]);
+          this.router.navigateByUrl('/home');
+          this.toaster.openSnackBar(res["message"], '', res['status']);
         }
-        else
-        {
-          alert(res["message"]);
+        else {
+          this.toaster.openSnackBar(res["message"], '', res['status']);
         }
-        
-      }, err => {        
+
+      }, err => {
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
         this.loading = false;
       });
-      this.loading = false;
+    this.loading = false;
   }
 
   onSubmit() {
-    this.submitted = true;        
+    this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
     this.doLogin();
-    
+
     // this.authenticationService
     //  .login(this.f.username.value, this.f.password.value)
     // .pipe(first())

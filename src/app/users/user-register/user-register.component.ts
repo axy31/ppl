@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, AbstractControl, FormBuilder, Validators, ValidatorFn } from "@angular/forms";
 import { Router } from "@angular/router";
-import { ToasterService } from "angular2-toaster";
 import { teamObject } from 'src/app/objects/teamObject';
 import { ApiCallService } from 'src/app/core/api-call.service';
 import { playerListObject } from 'src/app/objects/playerListObject';
+import { ToasterService } from 'src/app/core/toaster.service';
 
 export class customValidationService {
   static checkLimit(min: number, max: number): ValidatorFn {
@@ -24,7 +24,6 @@ export class customValidationService {
 })
 export class UserRegisterComponent implements OnInit {
   myGroup: FormGroup;
-  toasterService: ToasterService;
   loading = false;
   Name: AbstractControl;
   UserName: AbstractControl;
@@ -41,7 +40,7 @@ export class UserRegisterComponent implements OnInit {
   teams: teamObject[];
 
   constructor(private api: ApiCallService,
-    private router: Router,
+    private router: Router, private toaster: ToasterService,
     fb: FormBuilder
     // private _ApplicationServiceService: ApplicationServiceService,
     // toasterService: ToasterService
@@ -101,11 +100,23 @@ export class UserRegisterComponent implements OnInit {
     this.loading = true;
     await this.api.doRegister(this.myGroup.value)
       .subscribe(res => {
-        console.log(res);
-        this.router.navigateByUrl('/home');        
-      }, err => {        
+        if (res["status"] === "success") {
+          localStorage.setItem("Access", res["Access"]);
+          localStorage.setItem("MobileNo", res["MobileNo"]);
+          localStorage.setItem("Name", res["Name"]);
+          localStorage.setItem("Team", res["Team"]);
+          localStorage.setItem("UserName", res["UserName"]);
+          this.router.navigateByUrl('/home');
+          this.toaster.openSnackBar(res["message"], '', res['status']);
+        }
+        else {
+          this.toaster.openSnackBar(res["message"], '', res['status']);
+        }
+        this.router.navigateByUrl('/home');
+      }, err => {
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
         this.loading = false;
       });
-      this.loading = false;
+    this.loading = false;
   }
 }
