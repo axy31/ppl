@@ -31,7 +31,7 @@ export class ApiCallService {
   public checkIfAdmin() {
     if (localStorage.getItem("UserName") === null)
       this.isAdmin = false;
-    else 
+    else
       this.isLoggedIn = true;
     this.isAdmin = (localStorage.getItem('Access') === 'Admin');
   }
@@ -124,7 +124,6 @@ export class ApiCallService {
       );
   }
 
-
   GetMatchHistory(): Observable<any[]> {
     return this.http.get<any[]>(apiUrl + 'GetMatchHistory')
       .pipe(
@@ -135,6 +134,14 @@ export class ApiCallService {
     return this.http.post<any[]>(apiUrl + 'GetpredictionHistory', object, httpOptions)
       .pipe(
         catchError(this.handleError('GetpredictionHistory', []))
+      );
+  }
+
+  postPredictions(object): Observable<any[]> {
+    object['UserName'] = localStorage.getItem("UserName");
+    return this.http.post<any[]>(apiUrl + 'makePrediction', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('makePrediction', []))
       );
   }
 

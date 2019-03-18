@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { previousPredictionObject } from "src/app/objects/previousPredictionObject";
 import { ApiCallService } from "src/app/core/api-call.service";
 import { MatTableDataSource, MatSort } from "@angular/material";
+import { ToasterService } from 'src/app/core/toaster.service';
 
 @Component({
   selector: "app-previous-predictions",
@@ -25,7 +26,7 @@ export class PreviousPredictionsComponent implements OnInit {
   dataSource = new MatTableDataSource<previousPredictionObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService) {}
+  constructor(private api: ApiCallService, private toaster: ToasterService) { }
 
   previousPrediction() {
     this.api.getPreviousPrediction().subscribe(
@@ -34,7 +35,7 @@ export class PreviousPredictionsComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       }
     );
   }

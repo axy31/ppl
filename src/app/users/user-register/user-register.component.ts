@@ -73,7 +73,7 @@ export class UserRegisterComponent implements OnInit {
       .subscribe(res => {
         this.teams = res;
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -82,7 +82,7 @@ export class UserRegisterComponent implements OnInit {
       .subscribe(res => {
         this.players = res;
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -96,7 +96,6 @@ export class UserRegisterComponent implements OnInit {
   }
 
   async registerUser() {
-    console.log(this.myGroup.value);
     this.loading = true;
     await this.api.doRegister(this.myGroup.value)
       .subscribe(res => {

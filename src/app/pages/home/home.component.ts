@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { homeObject } from 'src/app/objects/homeObject';
 import { ApiCallService } from 'src/app/core/api-call.service';
+import { ToasterService } from 'src/app/core/toaster.service';
 
 @Component({
   selector: 'app-home',
@@ -14,22 +15,21 @@ export class HomeComponent implements OnInit {
   dataSource = new MatTableDataSource<homeObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService) {    
+  constructor(private api: ApiCallService,private toaster: ToasterService) {
   }
 
-  UserRankDetails()
-  {
+  UserRankDetails() {
     this.api.getuserRankDetails()
-    .subscribe(res => {
-      this.dataSource.data = res;      
-      this.dataSource.sort = this.sort;
-    }, err => {
-      console.log(err);
-    });
+      .subscribe(res => {
+        this.dataSource.data = res;
+        this.dataSource.sort = this.sort;
+      }, err => {
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+      });
   }
 
   ngOnInit() {
-    this.UserRankDetails();    
-    
+    this.UserRankDetails();
+
   }
 }
