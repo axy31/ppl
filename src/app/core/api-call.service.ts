@@ -144,5 +144,4 @@ export class ApiCallService {
         catchError(this.handleError('makePrediction', []))
       );
   }
-
 }

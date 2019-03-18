@@ -1,32 +1,183 @@
-<div class="p-4">
-  <h4>Your Device Info</h4>
-  <table class="table table-hover mt-3">
-      <tr>
-          <td>Device Model</td>
-          <td>{{deviceInfo.model}}</td>
-      </tr>
-      <tr>
-          <td>Device Platform</td>
-          <td>{{deviceInfo.platform}}</td>
-      </tr>
-      <tr>
-          <td>Device UID</td>
-          <td>{{deviceInfo.uuid}}</td>
-      </tr>
-      <tr>
-          <td>Device Version</td>
-          <td>{{deviceInfo.version}}</td>
-      </tr>
-      <tr>
-          <td>Device Manufacturer</td>
-          <td>{{deviceInfo.manufacturer}}</td>
-      </tr>
-      <tr>
-          <td>Device Serial</td>
-          <td>{{deviceInfo.serial}}</td>
-      </tr>
-  </table>
-  <div class="col-md-6 offset-md-3">
-      <a class="col-md-6 offset-md-3 btn btn-primary" routerLink="/">Home</a>
-  </div>
-</div>
+<span [innerHtml]="myTemplate| safeHtml">
+</span>
+<!-- 
+<div class=" bodycontent mat-elevation-z8">
+    <div class="scrollable-div">
+        <mat-card>
+            <h3>
+                General Rules
+            </h3>
+            <ol>
+                <li>User can check the points table on the home page</li>
+                <li>The player with the lowest points tally is the winner</li>
+                <li>Prediction can be made for matches starting in next 72 hrs</li>
+                <li>Predictions for a match will close 1 hr before the scheduled start
+                    <ul>
+                        <li>Even in matches with delayed start, prediction time won't be extended</li>
+                    </ul>
+                </li>
+                <li>Predictions can be updated any number of times till time expires</li>
+                <li>Matches affected due to weather conditions will be considered for normal predictions
+                    <ul>
+                        <li>For matches that have overs reduced all predictions will be treated as normal predictions
+                        </li>
+                        <li>For washed out matches, total runs and wickets will be considered as 0 and the match will be
+                            considered as drawn with no winner</li>
+                    </ul>
+                </li>
+                <li>Points are shown on the Prediction Screen</li>
+                <li>The points in knockout stage are twice the points in group stage.And the points in final are thrice
+                    that
+                    of group stage</li>
+                <li>Previous prediction is for all the predictions made by the player</li>
+                <ul>
+                    <li>After the prediction window for a match closes, it comes to prediction Archive where it can be
+                        seen
+                        by everyone</li>
+                </ul>
+                <li>Organizing Board decision is final and binding</li>
+            </ol>
+        </mat-card>
+    </div>
+    </div>
+
+    <br />
+    <div class="bodycontent mat-elevation-z8">
+        <div class="scrollable-div">
+            <mat-card>
+                <h3>
+                    Sign up
+                </h3>
+                <ol>
+                    <li>When user signs up he has to enter Username, password, mobile number, Final IPL Winner, Purple
+                        Cap
+                        Player(Most Wickets), Orange Cap Player(Most Runs),Most valuable player (Man of the series)</li>
+                    <ul>
+                        <li>Once predicted it cannot be changed till it reopens again</li>
+                    </ul>
+                    <li>In case you forget the password, you need to know the username and mobile number to get the
+                        password
+                    </li>
+
+                </ol>
+            </mat-card>
+        </div>
+    </div>
+    <br />
+    <div class="bodycontent mat-elevation-z8">
+        <div class="scrollable-div">
+            <mat-card>
+                <h3>
+                    Final IPL Winner / Purple Cap / Orange Cap Predictions / Most Valuable Player
+                </h3>
+                <ol>
+                    <li>This option will be available to the user 3 times during the entire IPL where the user can
+                        update
+                        the
+                        predicions</li>
+                    <ul>
+                        <li>During Signup (MANDATORY)</li>
+                        <li>Before Knockout</li>
+                        <li>Before Final</li>
+                    </ul>
+                    <table border="black">
+                        <tr>
+                            <th>Update</th>
+                            <th colspan="2">IPL Winner</th>
+                            <th colspan="2">Purple Cap</th>
+                            <th colspan="2">Orange Cap</th>
+                            <th colspan="2">Most Valuable Player</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td bgcolor="green">-100</td>
+                            <td bgcolor="red">+20</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+10</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+10</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+10</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td bgcolor="green">-100</td>
+                            <td bgcolor="red">+50</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+20</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+20</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+20</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td bgcolor="green">-100</td>
+                            <td bgcolor="red">+100</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+50</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+50</td>
+                            <td bgcolor="green">-50</td>
+                            <td bgcolor="red">+50</td>
+                        </tr>
+                    </table>
+                    <li>For Winner -
+                        <ul>
+                            <li>If the user gets the final prediction right then he will be awarded -100 points i.e 100
+                                points
+                                will be deducted from total</li>
+                            <li>If the user updates the winner once then 20 points will be added to his points tally. So
+                                aggregate gain if right prediction on second go is -100 + 20 = -80</li>
+                            <li>If the user updates the winner twice then 50 points will be added to his points tally.
+                                So
+                                aggregate gain if right prediction on third go is -100 + 20 + 50 = -30</li>
+                        </ul>
+                    </li>
+                    <li>Similarly for Purple Cap and Orange Cap</li>
+
+
+                </ol>
+            </mat-card>
+        </div>
+    </div>
+    <br />
+    <div class="bodycontent mat-elevation-z8">
+        <div class="scrollable-div">
+            <mat-card>
+                <h3>
+                    Prediction History
+                </h3>
+                <ol>
+                    <li>Previously made predictions can be checked along with the actual score of the match on Previous
+                        Prediction Page</li>
+                    <li>The page also displays points obtained per match</li>
+                </ol>
+            </mat-card>
+        </div>
+    </div>
+    <br />
+    <div class="bodycontent mat-elevation-z8">
+        <div class="scrollable-div">
+            <mat-card>
+                <h3>
+                    Additional Rules
+                </h3>
+                <ol>
+                    <li>If there is a Super Over in any match then the runs and wickets will be added to the regular
+                        runs
+                        and
+                        wickets</li>
+                    <li>Since there are negative points, in case the top ranker has negative points then he will be
+                        brought
+                        to 0
+                        and points will be added to others accordingly </li>
+                    <ul>
+                        <li>i.e if the table topper has -50 points then 50 points will be added to every player</li>
+                    </ul>
+                    <li>Multiplication factor will be decided after the end of the tournament</li>
+                    <li>In case of any disputes, it will be handled by Dhruvin,Anirudh,Gautam</li>
+                </ol>
+            </mat-card>
+        </div>
+    </div> -->

@@ -13,10 +13,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() { }
 
-  public generalInfo() {
-    console.log("pressed general info ");
-  }
-
   avatar() {
     console.log(" avatar clicked");
   }
