@@ -113,6 +113,22 @@ export class ApiCallService {
       );
   }
 
+  getProfileDetails(): Observable<any[]> {
+    var object = {}
+    object['UserName'] = localStorage.getItem("UserName");
+    return this.http.post<any[]>(apiUrl + 'getProfileDetails', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('getProfileDetails', []))
+      );
+  }
+
+  openReprediction(): Observable<any[]> {
+    return this.http.get<any[]>(apiUrl + 'openReprediction')
+      .pipe(
+        catchError(this.handleError('openReprediction', []))
+      );
+  }
+
   getPlayerList(): Observable<playerListObject[]> {
     return this.http.get<playerListObject[]>(apiUrl + 'teamPlayerList')
       .pipe(

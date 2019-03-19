@@ -11,6 +11,7 @@ import { UserLoginComponent } from "../users/user-login/user-login.component";
 import { UserRegisterComponent } from "../users/user-register/user-register.component";
 import { NoAuthGuard } from './NoAuthGuard';
 import { isLoggedIn } from './isLoggedIn';
+import { UserProfileComponent } from '../users/user-profile/user-profile.component';
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "makeprediction", component: MakePredictionComponent, canActivate: [isLoggedIn] },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "config", component: ConfigComponent, canActivate: [NoAuthGuard] },
   { path: "login", component: UserLoginComponent },
   { path: "register", component: UserRegisterComponent },
+  { path: "profile", component: UserProfileComponent, canActivate: [isLoggedIn] },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 

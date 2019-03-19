@@ -22,7 +22,7 @@
       <mat-icon class="icon logged" >account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Profile</button>
+      <button mat-menu-item [routerLink]="['profile']">Profile</button>
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
   </div>

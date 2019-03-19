@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /* for sidenav to take whole page */
 
 html, body {
@@ -358,4 +358,14 @@ table {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+}
+
+.radio-button {
+	margin: 5px;
+}
+
+.radio-group {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
 }
