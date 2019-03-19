@@ -26,6 +26,8 @@ export class ApiCallService {
 
   isAdmin: Boolean = false;
   isLoggedIn: Boolean = false;
+  team: string = "IPL";
+  navbar: string = "navbar-IPL";
   constructor(private http: HttpClient) {
   }
 
@@ -33,8 +35,12 @@ export class ApiCallService {
     if (localStorage.getItem("UserName") === null) {
       this.isAdmin = false;
       this.isLoggedIn = false;
+      this.team = "IPL";
+      this.navbar = "navbar-IPL";
     }
     else {
+      this.team = localStorage.getItem('Team');
+      this.navbar = "navbar-" + localStorage.getItem('Team');
       this.isLoggedIn = true;
     }
     this.isAdmin = (localStorage.getItem('Access') === 'Admin');

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ApiCallService } from './core/api-call.service';
 
 @Component({
   selector: "app-root",
@@ -7,5 +8,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "ppl";
-
+  constructor(public api: ApiCallService) {
+  }
 }
