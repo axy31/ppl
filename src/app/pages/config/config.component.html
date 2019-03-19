@@ -1,16 +1,15 @@
-<div id="config-form">
+<div id="bodycontent">
   <form (ngSubmit)="UpdateConfig(config)" [formGroup]="myGroup">
     <div class="form-group full-width-container">
       <mat-form-field>
         <input matInput placeholder="Enter DaysAhead" name="daysAhead" [formControl]="daysAhead" type="number" required>
-        <mat-error *ngIf="Fifties.hasError('required')">Please enter no of Fifties</mat-error>
+        <mat-error *ngIf="daysAhead.hasError('required')">Please enter no of Fifties</mat-error>
       </mat-form-field>
     </div>
     <button mat-raised-button type="submit" color="primary" name="UpdateConfig">Update</button>
   </form>
-</div>
-<br /><br /><br />
-<div id="RePredictionForm">
+  <br /><br /><br />
+
   <form (ngSubmit)="OpenReprediction(Reprediction)" [formGroup]="myGroup">
     <div class="form-group full-width-container">
       <label>Open Reprediction:</label>
