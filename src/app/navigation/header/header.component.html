@@ -8,8 +8,8 @@
     <a routerLink="/home">PPL</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end">
-    <button mat-icon-button (click)="generalInfo()">
-      <mat-icon class="icon">info</mat-icon>
+    <button mat-icon-button>
+      <mat-icon class="icon" [routerLink]="['generalinfo']">info</mat-icon>
     </button>
   </div>
   <div>

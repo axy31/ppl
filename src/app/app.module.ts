@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, Pipe } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material/material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -12,11 +12,11 @@ import { SidenavListComponent } from "./navigation/sidenav-list/sidenav-list.com
 import { MakePredictionComponent } from "./pages/make-prediction/make-prediction.component";
 import { PreviousPredictionsComponent } from "./pages/previous-predictions/previous-predictions.component";
 import { PredictionArchiveComponent } from "./pages/prediction-archive/prediction-archive.component";
-import { GeneralInfoComponent } from "./pages/general-info/general-info.component";
+import { GeneralInfoComponent, Safe } from "./pages/general-info/general-info.component";
 import { ConfigComponent } from "./pages/config/config.component";
 import { UserLoginComponent } from "./users/user-login/user-login.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
-import { MatSelectModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule } from "@angular/material";
+import { MatSelectModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule, MatSnackBarModule, MatCardModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from './users/user-register/user-register.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +39,8 @@ import { isLoggedIn } from './routing/isLoggedIn';
     UserLoginComponent,
     UserProfileComponent,
     UserRegisterComponent,
-    EqualValidator
+    EqualValidator,
+    Safe
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,9 @@ import { isLoggedIn } from './routing/isLoggedIn';
     MatButtonModule,
     MatTableModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatCardModule
   ],
 
   providers: [isLoggedIn, NoAuthGuard],

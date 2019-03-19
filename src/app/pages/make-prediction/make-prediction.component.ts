@@ -5,6 +5,7 @@ import { MatchDetailsObject } from 'src/app/objects/MatchDetailsObject';
 import { scoreRangeObject } from 'src/app/objects/scoreRangeObject';
 import { wicketRangeObject } from 'src/app/objects/wicketRangeObject';
 import { boundaryRangeObject } from 'src/app/objects/boundaryRangeObject';
+import { ToasterService } from 'src/app/core/toaster.service';
 
 @Component({
   selector: "app-make-prediction",
@@ -31,7 +32,7 @@ export class MakePredictionComponent implements OnInit {
   matches: MatchDetailsObject[];
   TotalCards: AbstractControl;
 
-  constructor(private api: ApiCallService, fb: FormBuilder) {
+  constructor(private api: ApiCallService, fb: FormBuilder, private toaster: ToasterService) {
     this.myGroup = fb.group({
       MatchId: [""],
       Winner: [""],
@@ -59,9 +60,8 @@ export class MakePredictionComponent implements OnInit {
     await this.api.getMatchDetails()
       .subscribe(res => {
         this.matches = res;
-        console.log(res);
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -69,9 +69,8 @@ export class MakePredictionComponent implements OnInit {
     await this.api.getScoreRange()
       .subscribe(res => {
         this.Scores = res;
-        console.log(res);
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -79,9 +78,8 @@ export class MakePredictionComponent implements OnInit {
     await this.api.getWicketRange()
       .subscribe(res => {
         this.Wickets = res;
-        console.log(res);
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -89,9 +87,8 @@ export class MakePredictionComponent implements OnInit {
     await this.api.getPlayersInTeam(object)
       .subscribe(res => {
         this.players = res;
-        console.log(res);
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -99,9 +96,8 @@ export class MakePredictionComponent implements OnInit {
     await this.api.getBoundaryRange()
       .subscribe(res => {
         this.Boundary = res;
-        console.log(res);
       }, err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
       });
   }
 
@@ -118,7 +114,12 @@ export class MakePredictionComponent implements OnInit {
     this.getBoundaryRange();
   }
 
-  makePrediction() {
-
+  async makePrediction() {
+    await this.api.postPredictions(this.myGroup.value)
+      .subscribe(res => {
+        this.toaster.openSnackBar(res["message"], '', res['status']);
+      }, err => {
+        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+      });
   }
 }

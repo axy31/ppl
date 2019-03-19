@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 /* for sidenav to take whole page */
-html, body { 
-    margin: 0;
-    height: 100%;
+
+html, body {
+	margin: 0;
+	height: 100%;
 }
 
 .full-width-container {
@@ -31,13 +32,27 @@ html, body {
 	overflow: hidden;
 }
 
-.scrollable-div
-{
+.scrollable-div {
 	overflow: auto;
 	position: relative;
 }
 
 table {
 	width: 100%;
-	border: black 1px;	
-  }
+	border: black 1px;
+}
+
+.success {
+	background: rgb(1, 112, 1);
+	color: white;
+}
+
+.error {
+	background: rgb(161, 0, 0);
+	color: white;
+}
+
+.warning{
+	background: rgb(175, 175, 9);
+	color: black;
+}

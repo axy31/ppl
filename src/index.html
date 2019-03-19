@@ -1,5 +1,5 @@
 <!doctype html>
-<meta name="viewport" content="width=800"/>
+<meta name="viewport" content="width=800" />
 <html lang="en">
 
 <head>
@@ -12,7 +12,15 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script type="text/javascript" src="cordova.js"></script>
-  
+  <script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      document.addEventListener("backbutton", function (e) {
+        alert("Please navigate through menu");
+        e.preventDefault();
+      }, false);
+    }
+  </script>
 </head>
 
 <body>

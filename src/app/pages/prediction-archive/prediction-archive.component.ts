@@ -3,6 +3,7 @@ import { predictionArchiveObject } from "src/app/objects/predictionArchiveObject
 import { ApiCallService } from "src/app/core/api-call.service";
 import { MatTableDataSource, MatSort } from "@angular/material";
 import { FormBuilder, FormGroup, AbstractControl } from "@angular/forms";
+import { ToasterService } from "src/app/core/toaster.service";
 
 @Component({
   selector: "app-prediction-archive",
@@ -30,7 +31,11 @@ export class PredictionArchiveComponent implements OnInit {
   dataSource = new MatTableDataSource<predictionArchiveObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService, private fb: FormBuilder) {
+  constructor(
+    private api: ApiCallService,
+    private fb: FormBuilder,
+    private toaster: ToasterService
+  ) {
     this.myGroup = fb.group({
       MatchId: [""]
     });
@@ -44,7 +49,7 @@ export class PredictionArchiveComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, "Contact Dev", "warning");
       }
     );
   }
@@ -59,7 +64,7 @@ export class PredictionArchiveComponent implements OnInit {
         this.matches = res;
       },
       err => {
-        console.log(err);
+        this.toaster.openSnackBar(err, "Contact Dev", "warning");
       }
     );
   }
