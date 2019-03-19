@@ -73,7 +73,7 @@ export class UserRegisterComponent implements OnInit {
       .subscribe(res => {
         this.teams = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -82,7 +82,7 @@ export class UserRegisterComponent implements OnInit {
       .subscribe(res => {
         this.players = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -107,13 +107,14 @@ export class UserRegisterComponent implements OnInit {
           localStorage.setItem("UserName", res["UserName"]);
           this.router.navigateByUrl('/home');
           this.toaster.openSnackBar(res["message"], '', res['status']);
+          this.api.checkIfAdmin();
         }
         else {
           this.toaster.openSnackBar(res["message"], '', res['status']);
         }
         this.router.navigateByUrl('/home');
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
         this.loading = false;
       });
     this.loading = false;

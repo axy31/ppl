@@ -13,6 +13,7 @@ export class SidenavListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.api.checkIfAdmin();
   }
 
   public onSidenavClose = () => {

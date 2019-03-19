@@ -19,14 +19,8 @@ export class UserLoginComponent implements OnInit {
 
   constructor(private api: ApiCallService, fb: FormBuilder,
     private route: ActivatedRoute, private toaster: ToasterService,
-    private router: Router // private authenticationService: AuthenticationService,
-  ) // private alertService: AlertService
-  {
-    // redirect to home if already logged in
-    //if (this.authenticationService.currentUserValue) {
-    // this.router.navigate(["/"]);
-    //}
-
+    private router: Router
+  ) {
     this.loginForm = fb.group({
       Username: [""],
       Password: [""]
@@ -36,11 +30,9 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
   }
 
-  // convenience getter for easy access to form fields
   get f() {
     return this.loginForm.controls;
   }
@@ -57,13 +49,14 @@ export class UserLoginComponent implements OnInit {
           localStorage.setItem("UserName", res["UserName"]);
           this.router.navigateByUrl('/home');
           this.toaster.openSnackBar(res["message"], '', res['status']);
+          this.api.checkIfAdmin();
         }
         else {
           this.toaster.openSnackBar(res["message"], '', res['status']);
         }
 
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
         this.loading = false;
       });
     this.loading = false;
@@ -71,23 +64,9 @@ export class UserLoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
     this.doLogin();
-
-    // this.authenticationService
-    //  .login(this.f.username.value, this.f.password.value)
-    // .pipe(first())
-    //.subscribe(
-    // data => {
-    //  this.router.navigate([this.returnUrl]);
-    //},
-    //error => {
-    // this.alertService.error(error);
-    //this.loading = false;
-    // }
-    //);
   }
 }

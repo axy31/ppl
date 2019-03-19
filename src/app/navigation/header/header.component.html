@@ -12,10 +12,19 @@
       <mat-icon class="icon" [routerLink]="['generalinfo']">info</mat-icon>
     </button>
   </div>
-  <div>
-    <button mat-icon-button (click)="avatar()">
+  <div *ngIf="!api.isLoggedIn">
+    <button mat-icon-button>
       <mat-icon class="icon" [routerLink]="['login']">account_circle</mat-icon>
     </button>
+  </div>
+  <div *ngIf="api.isLoggedIn">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="icon" style="color:gold">account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
   </div>
 
 </mat-toolbar>

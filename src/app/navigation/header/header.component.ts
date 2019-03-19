@@ -13,8 +13,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() { }
 
-  avatar() {
-    console.log(" avatar clicked");
+  logout() {
+    localStorage.clear();
+    this.api.checkIfAdmin();
   }
 
   public onToggleSidenav = () => {

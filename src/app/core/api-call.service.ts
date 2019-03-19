@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { homeObject } from '../objects/homeObject';
@@ -11,6 +11,7 @@ import { teamObject } from '../objects/teamObject';
 import { loginObject } from '../objects/LoginObject';
 import { playerListObject } from '../objects/playerListObject';
 import { registerationObject } from '../objects/registerationObject';
+import { isLoggedIn } from '../routing/isLoggedIn';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,12 +30,17 @@ export class ApiCallService {
   }
 
   public checkIfAdmin() {
-    if (localStorage.getItem("UserName") === null)
+    if (localStorage.getItem("UserName") === null) {
       this.isAdmin = false;
-    else
+      this.isLoggedIn = false;
+    }
+    else {
       this.isLoggedIn = true;
+    }
     this.isAdmin = (localStorage.getItem('Access') === 'Admin');
   }
+
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
