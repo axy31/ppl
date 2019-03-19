@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   dataSource = new MatTableDataSource<homeObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService,private toaster: ToasterService) {
+  constructor(private api: ApiCallService, private toaster: ToasterService) {
   }
 
   UserRankDetails() {
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.api.checkIfAdmin();
     this.UserRankDetails();
-
   }
 }

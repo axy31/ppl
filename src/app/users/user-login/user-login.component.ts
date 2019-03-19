@@ -57,6 +57,7 @@ export class UserLoginComponent implements OnInit {
           localStorage.setItem("UserName", res["UserName"]);
           this.router.navigateByUrl('/home');
           this.toaster.openSnackBar(res["message"], '', res['status']);
+          this.api.checkIfAdmin();
         }
         else {
           this.toaster.openSnackBar(res["message"], '', res['status']);

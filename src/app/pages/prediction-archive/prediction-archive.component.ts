@@ -52,6 +52,7 @@ export class PredictionArchiveComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.api.checkIfAdmin();
     this.GetMatchHistory();
   }
 

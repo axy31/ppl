@@ -108,6 +108,7 @@ export class MakePredictionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.api.checkIfAdmin();
     this.getMatchDetails();
     this.getScoreRange();
     this.getWicketRange();

@@ -41,6 +41,7 @@ export class PreviousPredictionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.api.checkIfAdmin();
     this.previousPrediction();
   }
 }

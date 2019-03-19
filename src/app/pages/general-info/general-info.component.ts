@@ -26,6 +26,8 @@ export class GeneralInfoComponent implements OnInit {
     this.http.get('http://ec2-52-66-210-236.ap-south-1.compute.amazonaws.com/api/test1.html', { responseType: 'text' })
       .subscribe(data => this.myTemplate = data)
   }
-  ngOnInit() { }
+  ngOnInit() {
+    this.api.checkIfAdmin();
+  }
 }
 
