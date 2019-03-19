@@ -73,7 +73,7 @@ export class UserRegisterComponent implements OnInit {
       .subscribe(res => {
         this.teams = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -82,7 +82,7 @@ export class UserRegisterComponent implements OnInit {
       .subscribe(res => {
         this.players = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -114,7 +114,7 @@ export class UserRegisterComponent implements OnInit {
         }
         this.router.navigateByUrl('/home');
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
         this.loading = false;
       });
     this.loading = false;

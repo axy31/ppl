@@ -46,7 +46,7 @@ export class PredictionArchiveComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       }
     );
   }
@@ -62,7 +62,7 @@ export class PredictionArchiveComponent implements OnInit {
         this.matches = res;
       },
       err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       }
     );
   }

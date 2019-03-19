@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
         this.dataSource.data = res;
         this.dataSource.sort = this.sort;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 

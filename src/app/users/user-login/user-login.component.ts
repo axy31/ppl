@@ -19,14 +19,8 @@ export class UserLoginComponent implements OnInit {
 
   constructor(private api: ApiCallService, fb: FormBuilder,
     private route: ActivatedRoute, private toaster: ToasterService,
-    private router: Router // private authenticationService: AuthenticationService,
-  ) // private alertService: AlertService
-  {
-    // redirect to home if already logged in
-    //if (this.authenticationService.currentUserValue) {
-    // this.router.navigate(["/"]);
-    //}
-
+    private router: Router
+  ) {
     this.loginForm = fb.group({
       Username: [""],
       Password: [""]
@@ -64,7 +58,7 @@ export class UserLoginComponent implements OnInit {
         }
 
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
         this.loading = false;
       });
     this.loading = false;

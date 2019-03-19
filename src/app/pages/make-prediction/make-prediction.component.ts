@@ -6,6 +6,7 @@ import { scoreRangeObject } from 'src/app/objects/scoreRangeObject';
 import { wicketRangeObject } from 'src/app/objects/wicketRangeObject';
 import { boundaryRangeObject } from 'src/app/objects/boundaryRangeObject';
 import { ToasterService } from 'src/app/core/toaster.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-make-prediction",
@@ -32,7 +33,7 @@ export class MakePredictionComponent implements OnInit {
   matches: MatchDetailsObject[];
   TotalCards: AbstractControl;
 
-  constructor(private api: ApiCallService, fb: FormBuilder, private toaster: ToasterService) {
+  constructor(private api: ApiCallService, fb: FormBuilder, private toaster: ToasterService, private router: Router) {
     this.myGroup = fb.group({
       MatchId: [""],
       Winner: [""],
@@ -61,7 +62,7 @@ export class MakePredictionComponent implements OnInit {
       .subscribe(res => {
         this.matches = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -70,7 +71,7 @@ export class MakePredictionComponent implements OnInit {
       .subscribe(res => {
         this.Scores = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -79,7 +80,7 @@ export class MakePredictionComponent implements OnInit {
       .subscribe(res => {
         this.Wickets = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -88,7 +89,7 @@ export class MakePredictionComponent implements OnInit {
       .subscribe(res => {
         this.players = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -97,7 +98,7 @@ export class MakePredictionComponent implements OnInit {
       .subscribe(res => {
         this.Boundary = res;
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 
@@ -116,11 +117,16 @@ export class MakePredictionComponent implements OnInit {
   }
 
   async makePrediction() {
+    if (!this.api.isLoggedIn) {
+      this.toaster.openSnackBar('Please Login First', '', 'error');
+      this.router.navigateByUrl('/login');
+    }
+
     await this.api.postPredictions(this.myGroup.value)
       .subscribe(res => {
         this.toaster.openSnackBar(res["message"], '', res['status']);
       }, err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });
   }
 }

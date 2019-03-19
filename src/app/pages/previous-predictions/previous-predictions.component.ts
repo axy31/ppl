@@ -3,6 +3,7 @@ import { previousPredictionObject } from "src/app/objects/previousPredictionObje
 import { ApiCallService } from "src/app/core/api-call.service";
 import { MatTableDataSource, MatSort } from "@angular/material";
 import { ToasterService } from 'src/app/core/toaster.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-previous-predictions",
@@ -26,16 +27,20 @@ export class PreviousPredictionsComponent implements OnInit {
   dataSource = new MatTableDataSource<previousPredictionObject>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private api: ApiCallService, private toaster: ToasterService) { }
+  constructor(private api: ApiCallService, private toaster: ToasterService, private router: Router) { }
 
   previousPrediction() {
+    if (!this.api.isLoggedIn) {
+      this.toaster.openSnackBar('Please Login First', '', 'error');
+      this.router.navigateByUrl('/login');
+    }
     this.api.getPreviousPrediction().subscribe(
       res => {
         this.dataSource.data = res;
         this.dataSource.sort = this.sort;
       },
       err => {
-        this.toaster.openSnackBar(err, 'Contact Dev', 'warning');
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       }
     );
   }
