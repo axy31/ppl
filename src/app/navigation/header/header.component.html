@@ -13,7 +13,7 @@
     </button>
   </div>
   <div *ngIf="!api.isLoggedIn">
-    <button mat-icon-button (click)="avatar()">
+    <button mat-icon-button>
       <mat-icon class="icon" [routerLink]="['login']">account_circle</mat-icon>
     </button>
   </div>
@@ -23,7 +23,7 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Profile</button>
-      <button mat-menu-item>Logout</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
   </div>
 
