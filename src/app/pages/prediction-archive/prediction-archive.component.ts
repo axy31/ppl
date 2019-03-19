@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { predictionArchiveObject } from "src/app/objects/predictionArchiveObject";
 import { ApiCallService } from "src/app/core/api-call.service";
 import { MatTableDataSource, MatSort } from "@angular/material";
-import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, AbstractControl } from "@angular/forms";
 
 @Component({
   selector: "app-prediction-archive",
@@ -31,7 +31,6 @@ export class PredictionArchiveComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private api: ApiCallService, private fb: FormBuilder) {
-
     this.myGroup = fb.group({
       MatchId: [""]
     });
@@ -65,4 +64,3 @@ export class PredictionArchiveComponent implements OnInit {
     );
   }
 }
-
