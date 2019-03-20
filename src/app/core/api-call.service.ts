@@ -143,6 +143,14 @@ export class ApiCallService {
       );
   }
 
+  doProfileUpdate(object: any): Observable<any[]> {
+    object['UserName'] = localStorage.getItem("UserName");
+    return this.http.post<any[]>(apiUrl + 'doProfileUpdate', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('doProfileUpdate', []))
+      );
+  }
+
   getPreviousPrediction(): Observable<any[]> {
     var object = {}
     object['UserName'] = localStorage.getItem("UserName");
