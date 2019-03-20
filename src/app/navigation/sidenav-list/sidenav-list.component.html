@@ -19,4 +19,8 @@
   <a *ngIf="api.isAdmin" mat-list-item routerLink="/config" (click)="onSidenavClose()">
     <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Config</span>
   </a>
+
+  <a *ngIf="api.isAdmin" mat-list-item routerLink="/actualscores" (click)="onSidenavClose()">
+    <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Actual Scores</span>
+  </a>
 </mat-nav-list>

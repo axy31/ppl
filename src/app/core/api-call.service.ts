@@ -180,4 +180,11 @@ export class ApiCallService {
         catchError(this.handleError('makePrediction', []))
       );
   }
+
+  submitActualScores(object): Observable<any[]> {    
+    return this.http.post<any[]>(apiUrl + 'submitActualScores', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('submitActualScores', []))
+      );
+  }
 }

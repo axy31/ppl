@@ -42,7 +42,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Winner" name="Winner" [formControl]="Winner" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let team of teams" [value]="team.TeamId">
             {{ team.TeamName }}
           </mat-option>
@@ -54,7 +54,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Orange Cap" name="OrangeCap" [formControl]="OrangeCap" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
             {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
@@ -65,7 +65,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Purple Cap" name="PurpleCap" [formControl]="PurpleCap" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
             {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
@@ -77,7 +77,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Most Valueable Player" name="MVP" [formControl]="MVP" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
             {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>

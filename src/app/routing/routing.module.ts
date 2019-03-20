@@ -13,29 +13,19 @@ import { NoAuthGuard } from "./NoAuthGuard";
 import { isLoggedIn } from "./isLoggedIn";
 import { UserProfileComponent } from "../users/user-profile/user-profile.component";
 import { ForgotPasswordComponent } from "../users/forgot-password/forgot-password.component";
+import { ActualScoresComponent } from '../pages/actual-scores/actual-scores.component';
 const routes: Routes = [
   { path: "home", component: HomeComponent },
-  {
-    path: "makeprediction",
-    component: MakePredictionComponent,
-    canActivate: [isLoggedIn]
-  },
-  {
-    path: "previousprediction",
-    component: PreviousPredictionsComponent,
-    canActivate: [isLoggedIn]
-  },
+  { path: "makeprediction", component: MakePredictionComponent, canActivate: [isLoggedIn] },
+  { path: "previousprediction", component: PreviousPredictionsComponent, canActivate: [isLoggedIn] },
   { path: "predictionarchive", component: PredictionArchiveComponent },
   { path: "generalinfo", component: GeneralInfoComponent },
   { path: "config", component: ConfigComponent, canActivate: [NoAuthGuard] },
+  { path: "actualscores", component: ActualScoresComponent, canActivate: [NoAuthGuard] },
   { path: "login", component: UserLoginComponent },
   { path: "register", component: UserRegisterComponent },
   { path: "forgotPassword", component: ForgotPasswordComponent },
-  {
-    path: "profile",
-    component: UserProfileComponent,
-    canActivate: [isLoggedIn]
-  },
+  { path: "profile", component: UserProfileComponent, canActivate: [isLoggedIn] },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 
@@ -44,4 +34,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
-export class RoutingModule {}
+export class RoutingModule { }

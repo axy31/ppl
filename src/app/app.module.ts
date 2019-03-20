@@ -37,6 +37,7 @@ import { isLoggedIn } from "./routing/isLoggedIn";
 import { MatRadioModule } from "@angular/material/radio";
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { RepredictionComponent } from './pages/reprediction/reprediction.component';
+import { ActualScoresComponent } from './pages/actual-scores/actual-scores.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { RepredictionComponent } from './pages/reprediction/reprediction.compone
     EqualValidator,
     Safe,
     ForgotPasswordComponent,
-    RepredictionComponent
+    RepredictionComponent,
+    ActualScoresComponent
   ],
   imports: [
     BrowserModule,

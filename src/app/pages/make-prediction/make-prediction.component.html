@@ -3,7 +3,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Match" name="Match" [formControl]="MatchId" (selectionChange)="GetWinners()" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let item of matches" [value]="item.MatchId">
             {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}
           </mat-option>
@@ -15,7 +15,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Winner" name="Winner" [formControl]="Winner" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngIf="(teams)" [value]="(teams.TeamA)">
             {{teams.TeamA}}
           </mat-option>
@@ -31,7 +31,7 @@
       <mat-form-field>
 
         <mat-select placeholder="Score" name="ddlScore" [formControl]="ddlScore" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let item of Scores" [value]="item.ScoreId">
             {{item.FromScore}} - {{item.ToScore}}
           </mat-option>
@@ -43,7 +43,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Wickets" name="ddlWickets" [formControl]="ddlWickets" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let item of Wickets" [value]="item.WicketId">
             {{item.FromWicket}} - {{item.ToWicket}}
           </mat-option>
@@ -54,32 +54,32 @@
 
     <div class="form-group full-width-container">
       <mat-form-field>
-        <mat-select placeholder="Max Runs By" name="MaxyRunsPlayer" [formControl]="MaxyRunsPlayer" required>
-          <mat-option>--</mat-option>
+        <mat-select placeholder="Max Runs By" name="MaxRunsPlayer" [formControl]="MaxRunsPlayer" required>
+          
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
             {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="MaxyRunsPlayer.hasError('required')">Please choose a player</mat-error>
+        <mat-error *ngIf="MaxRunsPlayer.hasError('required')">Please choose a player</mat-error>
       </mat-form-field>
     </div>
 
     <div class="form-group full-width-container">
       <mat-form-field>
-        <mat-select placeholder="Max Wickets By" name="MaxyWicketsPlayer" [formControl]="MaxyWicketsPlayer" required>
-          <mat-option>--</mat-option>
+        <mat-select placeholder="Max Wickets By" name="MaxWicketsPlayer" [formControl]="MaxWicketsPlayer" required>
+          
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
             {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="MaxyWicketsPlayer.hasError('required')">Please choose a player</mat-error>
+        <mat-error *ngIf="MaxWicketsPlayer.hasError('required')">Please choose a player</mat-error>
       </mat-form-field>
     </div>
 
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Man of Match" name="ManOfMatch" [formControl]="MOM" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let player of players" [value]="player.PlayerId">
             {{ player.PlayerName }} -> ({{player.TeamName}})
           </mat-option>
@@ -91,7 +91,7 @@
     <div class="form-group full-width-container">
       <mat-form-field>
         <mat-select placeholder="Boundary" name="ddlBoundary" [formControl]="ddlBoundary" required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let item of Boundary" [value]="item.BoundaryId">
             {{item.FromBoundary}} - {{item.ToBoundary}}
           </mat-option>
@@ -108,7 +108,8 @@
     </div>
     <br />
     <div class="form-group full-width-container">
-      <button mat-raised-button type="submit" name="MakePrediction" color="primary">Make Prediction</button>
+      <button mat-raised-button type="submit" name="MakePrediction" color="primary" [disabled]='!myGroup.valid'>Make
+        Prediction</button>
     </div>
   </form>
 </div>

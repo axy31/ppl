@@ -20,12 +20,12 @@ export class MakePredictionComponent implements OnInit {
   Winner: AbstractControl;
   ddlScore: AbstractControl;
   ddlWickets: AbstractControl;
-  MaxyRunsPlayer: AbstractControl;
-  MaxyWicketsPlayer: AbstractControl;
+  MaxRunsPlayer: AbstractControl;
+  MaxWicketsPlayer: AbstractControl;
   MOM: AbstractControl;
   ddlBoundary: AbstractControl;
   Fifties: AbstractControl;
-  teams: any;
+  teams: any = {};
   Scores: scoreRangeObject[];
   Wickets: wicketRangeObject[];
   players: any;
@@ -39,8 +39,8 @@ export class MakePredictionComponent implements OnInit {
       Winner: [""],
       ddlScore: [""],
       ddlWickets: [""],
-      MaxyRunsPlayer: [""],
-      MaxyWicketsPlayer: [""],
+      MaxRunsPlayer: [""],
+      MaxWicketsPlayer: [""],
       MOM: [""],
       ddlBoundary: [""],
       Fifties: [""]
@@ -49,8 +49,8 @@ export class MakePredictionComponent implements OnInit {
     this.Winner = this.myGroup.controls["Winner"];
     this.ddlScore = this.myGroup.controls["ddlScore"];
     this.ddlWickets = this.myGroup.controls["ddlWickets"];
-    this.MaxyRunsPlayer = this.myGroup.controls["MaxyRunsPlayer"];
-    this.MaxyWicketsPlayer = this.myGroup.controls["MaxyWicketsPlayer"];
+    this.MaxRunsPlayer = this.myGroup.controls["MaxRunsPlayer"];
+    this.MaxWicketsPlayer = this.myGroup.controls["MaxWicketsPlayer"];
     this.MOM = this.myGroup.controls["MOM"];
     this.ddlBoundary = this.myGroup.controls["ddlBoundary"];
     this.Fifties = this.myGroup.controls["Fifties"];

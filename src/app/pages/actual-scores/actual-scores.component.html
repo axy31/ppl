@@ -1,0 +1,154 @@
+<div class="bodycontent">
+  <form (ngSubmit)="submitScores()" [formGroup]="myGroup">
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Match" name="Match" [formControl]="MatchId" (selectionChange)="GetWinners()" required>
+          
+          <mat-option *ngFor="let item of matches" [value]="item.MatchId">
+            {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="MatchId.hasError('required')">Please choose a winner</mat-error>
+      </mat-form-field>
+    </div>
+
+    <label style="font-weight: bolder; font-size: 20px">{{teams.TeamA}}</label>
+    <div class="form-group half-width-container">
+      <mat-form-field>
+        <input matInput placeholder="Team A Score" name="TeamAScore" [formControl]="TeamAScore" type="number" required>
+        <mat-error *ngIf="TeamAScore.hasError('required')">Please enter Team A Score</mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="padding-left: 5%">
+        <input matInput placeholder="Team A Wicket" name="TeamAWicket" [formControl]="TeamAWicket" type="number"
+          required>
+        <mat-error *ngIf="TeamAWicket.hasError('required')">Please enter Team A Wicket</mat-error>
+      </mat-form-field>
+    </div>
+
+    <label style="font-weight: bolder; font-size: 20px">{{teams.TeamB}}</label>
+    <div class="form-group half-width-container">
+      <mat-form-field>
+        <input matInput placeholder="Team B Score" name="TeamBScore" [formControl]="TeamBScore" type="number" required>
+        <mat-error *ngIf="TeamBScore.hasError('required')">Please enter Team B Score</mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="padding-left: 5%">
+        <input matInput placeholder="Team B Wicket" name="TeamBWicket" [formControl]="TeamBWicket" type="number"
+          required>
+        <mat-error *ngIf="TeamBWicket.hasError('required')">Please enter Team B Wicket</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group half-width-container">
+      <mat-form-field>
+        <input matInput placeholder="No of 50's in match" name="Fifties" [formControl]="Fifties" type="number" required>
+        <mat-error *ngIf="Fifties.hasError('required')">Please enter no of Fifties</mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="padding-left: 5%">
+        <input matInput placeholder="No of Boundaries in match" name="Boundaries" [formControl]="Boundaries"
+          type="number" required>
+        <mat-error *ngIf="Boundaries.hasError('required')">Please enter no of Fifties</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Runs By" name="MaxRunsPlayer" [formControl]="MaxRunsPlayer" required>
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="MaxRunsPlayer.hasError('required')">Please choose a player</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Runs By" name="MaxRunsPlayer1" [formControl]="MaxRunsPlayer1">
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Runs By" name="MaxRunsPlayer2" [formControl]="MaxRunsPlayer2">
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Wickets By" name="MaxWicketsPlayer" [formControl]="MaxWicketsPlayer" required>
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="MaxWicketsPlayer.hasError('required')">Please choose a player</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Wickets By" name="MaxWicketsPlayer1" [formControl]="MaxWicketsPlayer1">
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Wickets By" name="MaxWicketsPlayer2" [formControl]="MaxWicketsPlayer2">
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Wickets By" name="MaxWicketsPlayer3" [formControl]="MaxWicketsPlayer3">
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Max Wickets By" name="MaxWicketsPlayer4" [formControl]="MaxWicketsPlayer4">
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group full-width-container">
+      <mat-form-field>
+        <mat-select placeholder="Man of Match" name="ManOfMatch" [formControl]="MOM" required>
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}})
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="MOM.hasError('required')">Please choose a player</mat-error>
+      </mat-form-field>
+    </div>
+
+    <br />
+    <div class="form-group full-width-container">
+      <button mat-raised-button type="submit" name="MakePrediction" color="primary" [disabled]='!myGroup.valid'>Submit Scores</button>
+    </div>
+  </form>
+</div>

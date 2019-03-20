@@ -4,7 +4,7 @@
       <mat-form-field>
         <mat-select placeholder="Match" name="Match" [formControl]="MatchId" (selectionChange)="getPredictionArchive()"
           required>
-          <mat-option>--</mat-option>
+          
           <mat-option *ngFor="let item of matches" [value]="item.MatchId">
             {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}
           </mat-option>
