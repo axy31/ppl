@@ -11,12 +11,12 @@ import { ToasterService } from "src/app/core/toaster.service";
   styleUrls: ["./forgot-password.component.css"]
 })
 export class ForgotPasswordComponent implements OnInit {
-  loginForm: FormGroup;
+  forgetPasswordForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
   Username: AbstractControl;
-  mobileNo: AbstractControl;
+  MobileNo: AbstractControl;
 
   constructor(
     private api: ApiCallService,
@@ -25,15 +25,28 @@ export class ForgotPasswordComponent implements OnInit {
     private toaster: ToasterService,
     private router: Router
   ) {
-    this.loginForm = fb.group({
+    this.forgetPasswordForm = fb.group({
       Username: [""],
-      mobileNo: [""]
+      MobileNo: [""]
     });
-    this.Username = this.loginForm.controls["Username"];
-    this.mobileNo = this.loginForm.controls["mobileNo"];
+    this.Username = this.forgetPasswordForm.controls["Username"];
+    this.MobileNo = this.forgetPasswordForm.controls["MobileNo"];
   }
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
+  }
+
+  async sendPassword() {
+    console.log(this.forgetPasswordForm.value);
+    this.loading = true;
+    await this.api.forgotPassword(this.forgetPasswordForm.value)
+      .subscribe(res => {
+        this.toaster.openSnackBar(res["message"], '', res['status']);
+      }, err => {
+        this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
+        this.loading = false;
+      });
+    this.loading = false;
   }
 }

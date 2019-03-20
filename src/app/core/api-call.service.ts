@@ -187,4 +187,11 @@ export class ApiCallService {
         catchError(this.handleError('submitActualScores', []))
       );
   }
+
+  forgotPassword(object): Observable<any[]> {    
+    return this.http.post<any[]>(apiUrl + 'forgot', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('forgot', []))
+      );
+  }
 }
