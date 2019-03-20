@@ -109,11 +109,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   async updateUser() {
+    if (!this.api.isLoggedIn) {
+      this.toaster.openSnackBar('Please Login First', '', 'error');
+      this.router.navigateByUrl('/login');
+    }
     this.loading = true;
-    await this.api.doRegister(this.myGroup.value)
+    await this.api.doProfileUpdate(this.myGroup.value)
       .subscribe(res => {
         if (res["status"] === "success") {
-          localStorage.setItem("Access", res["Access"]);
           localStorage.setItem("MobileNo", res["MobileNo"]);
           localStorage.setItem("Name", res["Name"]);
           localStorage.setItem("Team", res["Team"]);
