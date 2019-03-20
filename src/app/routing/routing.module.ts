@@ -9,19 +9,33 @@ import { GeneralInfoComponent } from "../pages/general-info/general-info.compone
 import { ConfigComponent } from "../pages/config/config.component";
 import { UserLoginComponent } from "../users/user-login/user-login.component";
 import { UserRegisterComponent } from "../users/user-register/user-register.component";
-import { NoAuthGuard } from './NoAuthGuard';
-import { isLoggedIn } from './isLoggedIn';
-import { UserProfileComponent } from '../users/user-profile/user-profile.component';
+import { NoAuthGuard } from "./NoAuthGuard";
+import { isLoggedIn } from "./isLoggedIn";
+import { UserProfileComponent } from "../users/user-profile/user-profile.component";
+import { ForgotPasswordComponent } from "../users/forgot-password/forgot-password.component";
 const routes: Routes = [
   { path: "home", component: HomeComponent },
-  { path: "makeprediction", component: MakePredictionComponent, canActivate: [isLoggedIn] },
-  { path: "previousprediction", component: PreviousPredictionsComponent, canActivate: [isLoggedIn] },
+  {
+    path: "makeprediction",
+    component: MakePredictionComponent,
+    canActivate: [isLoggedIn]
+  },
+  {
+    path: "previousprediction",
+    component: PreviousPredictionsComponent,
+    canActivate: [isLoggedIn]
+  },
   { path: "predictionarchive", component: PredictionArchiveComponent },
   { path: "generalinfo", component: GeneralInfoComponent },
   { path: "config", component: ConfigComponent, canActivate: [NoAuthGuard] },
   { path: "login", component: UserLoginComponent },
   { path: "register", component: UserRegisterComponent },
-  { path: "profile", component: UserProfileComponent, canActivate: [isLoggedIn] },
+  { path: "forgotPassword", component: ForgotPasswordComponent },
+  {
+    path: "profile",
+    component: UserProfileComponent,
+    canActivate: [isLoggedIn]
+  },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 
@@ -30,4 +44,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
-export class RoutingModule { }
+export class RoutingModule {}
