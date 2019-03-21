@@ -9,6 +9,11 @@
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end">
     <button mat-icon-button>
+      <mat-icon class="icon" (click)="refresh()">refresh</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button mat-icon-button>
       <mat-icon class="icon" [routerLink]="['generalinfo']">info</mat-icon>
     </button>
   </div>
@@ -19,7 +24,7 @@
   </div>
   <div *ngIf="api.isLoggedIn">
     <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon class="icon logged" >account_circle</mat-icon>
+      <mat-icon class="icon logged">account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="['profile']">Profile</button>

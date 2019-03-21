@@ -20,6 +20,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
+  refresh() {
+    window.location.reload();
+  }
+
   public onToggleSidenav = () => {
     this.api.checkIfAdmin();
     this.sidenavToggle.emit();
