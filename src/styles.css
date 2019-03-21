@@ -224,25 +224,25 @@ table {
 	background-attachment: fixed;
 }
 
-.DD {
+.DC {
 	position: relative;
 	color: black !important;
 	min-height: 91.3%;
 }
 
-#navbar-DD {
+#navbar-DC {
 	background-color: #EB2923 !important;
 }
 
-#navbar-DD .logged {
+#navbar-DC .logged {
 	color: yellow !important;
 }
 
-.DD a {
+.DC a {
 	color: white;
 }
 
-.DD::after {
+.DC::after {
 	background-color: #ffffff !important;
 	opacity: 0.20;
 	position: absolute;
