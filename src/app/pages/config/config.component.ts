@@ -12,7 +12,6 @@ export class ConfigComponent implements OnInit {
   responseData: {};
   myGroup: FormGroup;
   daysAhead: AbstractControl;
-  OpenReprediction: AbstractControl;
 
   constructor(
     private api: ApiCallService,
@@ -20,11 +19,12 @@ export class ConfigComponent implements OnInit {
     private router: Router
   ) {
     this.myGroup = fb.group({
-      daysAhead: [""],
-      OpenReprediction: [""]
+      daysAhead: [""]
     });
     this.daysAhead = this.myGroup.controls["daysAhead"];
-    this.OpenReprediction = this.myGroup.controls["OpenReprediction"];
   }
-  ngOnInit() {}
+
+  ngOnInit() { }
+  UpdateConfig() { }
+  OpenReprediction() { }
 }

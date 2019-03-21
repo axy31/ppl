@@ -12,22 +12,11 @@ import { SidenavListComponent } from "./navigation/sidenav-list/sidenav-list.com
 import { MakePredictionComponent } from "./pages/make-prediction/make-prediction.component";
 import { PreviousPredictionsComponent } from "./pages/previous-predictions/previous-predictions.component";
 import { PredictionArchiveComponent } from "./pages/prediction-archive/prediction-archive.component";
-import {
-  GeneralInfoComponent,
-  Safe
-} from "./pages/general-info/general-info.component";
+import { GeneralInfoComponent, Safe } from "./pages/general-info/general-info.component";
 import { ConfigComponent } from "./pages/config/config.component";
 import { UserLoginComponent } from "./users/user-login/user-login.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
-import {
-  MatSelectModule,
-  MatInputModule,
-  MatButtonModule,
-  MatTableModule,
-  MatSortModule,
-  MatSnackBarModule,
-  MatCardModule
-} from "@angular/material";
+import { MatSelectModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule, MatSnackBarModule, MatCardModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -36,7 +25,6 @@ import { NoAuthGuard } from "./routing/NoAuthGuard";
 import { isLoggedIn } from "./routing/isLoggedIn";
 import { MatRadioModule } from "@angular/material/radio";
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
-import { RepredictionComponent } from './pages/reprediction/reprediction.component';
 import { ActualScoresComponent } from './pages/actual-scores/actual-scores.component';
 
 @NgModule({
@@ -57,7 +45,6 @@ import { ActualScoresComponent } from './pages/actual-scores/actual-scores.compo
     EqualValidator,
     Safe,
     ForgotPasswordComponent,
-    RepredictionComponent,
     ActualScoresComponent
   ],
   imports: [
@@ -82,4 +69,4 @@ import { ActualScoresComponent } from './pages/actual-scores/actual-scores.compo
   providers: [isLoggedIn, NoAuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
