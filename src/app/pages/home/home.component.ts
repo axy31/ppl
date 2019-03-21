@@ -13,7 +13,6 @@ import { ToasterService } from 'src/app/core/toaster.service';
 export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['Rank', 'Name', 'Team', 'PurpleCap', 'OrangeCap', 'MVP', 'Points'];
   dataSource = new MatTableDataSource<homeObject>();
-  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private api: ApiCallService, private toaster: ToasterService) {
   }
@@ -22,7 +21,6 @@ export class HomeComponent implements OnInit {
     this.api.getuserRankDetails()
       .subscribe(res => {
         this.dataSource.data = res;
-        this.dataSource.sort = this.sort;
       }, err => {
         this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');
       });

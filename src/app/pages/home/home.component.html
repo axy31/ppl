@@ -1,43 +1,43 @@
 <div class="bodycontent mat-elevation-z8">
   <div class="scrollable-div">
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table mat-table [dataSource]="dataSource">
 
       <!-- Position Column -->
       <ng-container matColumnDef="Rank" sticky>
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>
+        <th mat-header-cell *matHeaderCellDef > Rank </th>
         <td mat-cell *matCellDef="let element"> {{element.Rank}} </td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="Name" sticky>
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef > Name </th>
         <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="Team">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Team </th>
+        <th mat-header-cell *matHeaderCellDef > Team </th>
         <td mat-cell *matCellDef="let element"> {{element.Team}} </td>
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="PurpleCap">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Purple Cap </th>
+        <th mat-header-cell *matHeaderCellDef > Purple Cap </th>
         <td mat-cell *matCellDef="let element"> {{element.PurpleCap}} </td>
       </ng-container>
 
       <ng-container matColumnDef="OrangeCap">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Orange Cap </th>
+        <th mat-header-cell *matHeaderCellDef > Orange Cap </th>
         <td mat-cell *matCellDef="let element"> {{element.OrangeCap}} </td>
       </ng-container>
 
       <ng-container matColumnDef="MVP">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> MVP </th>
+        <th mat-header-cell *matHeaderCellDef > MVP </th>
         <td mat-cell *matCellDef="let element"> {{element.MVP}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Points">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Points </th>
+        <th mat-header-cell *matHeaderCellDef > Points </th>
         <td mat-cell *matCellDef="let element"> {{element.Points}} </td>
       </ng-container>
 
