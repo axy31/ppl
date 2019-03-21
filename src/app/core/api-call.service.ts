@@ -130,7 +130,7 @@ export class ApiCallService {
   }
 
   getPlayerList(): Observable<playerListObject[]> {
-    return this.http.get<playerListObject[]>(apiUrl + 'teamPlayerList')
+    return this.http.get<playerListObject[]>(apiUrl + 'playerList.json')
       .pipe(
         catchError(this.handleError('teamPlayerList', []))
       );
