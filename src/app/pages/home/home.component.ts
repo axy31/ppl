@@ -20,6 +20,12 @@ export class HomeComponent implements OnInit {
   UserRankDetails() {
     this.api.getuserRankDetails()
       .subscribe(res => {
+        for (var count = 1; count < res.length; count++) {          
+          if (parseInt(res[count]["Points"]) != parseInt(res[count - 1]["Points"])) {
+            
+            res[count]["Rank"] = (parseInt(res[count - 1]["Rank"]) + 1).toString();
+          }
+        }
         this.dataSource.data = res;
       }, err => {
         this.toaster.openSnackBar('Unexpected Error', 'Contact Dev', 'warning');

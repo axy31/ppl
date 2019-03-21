@@ -101,8 +101,8 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.getTeams();
     this.getPlayerList();
-    this.getProfileDetails();
     this.openReprediction();
+    this.getProfileDetails();
   }
 
   ngAfterViewInit() {
