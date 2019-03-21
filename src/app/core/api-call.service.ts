@@ -181,17 +181,32 @@ export class ApiCallService {
       );
   }
 
-  submitActualScores(object): Observable<any[]> {    
+  submitActualScores(object): Observable<any[]> {
     return this.http.post<any[]>(apiUrl + 'submitActualScores', object, httpOptions)
       .pipe(
         catchError(this.handleError('submitActualScores', []))
       );
   }
 
-  forgotPassword(object): Observable<any[]> {    
+  forgotPassword(object): Observable<any[]> {
     return this.http.post<any[]>(apiUrl + 'forgot', object, httpOptions)
       .pipe(
         catchError(this.handleError('forgot', []))
       );
   }
+
+  OpenReprediction(object): Observable<any[]> {
+    return this.http.post<any[]>(apiUrl + 'OpenRepredictionWindow', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('OpenRepredictionWindow', []))
+      );
+  }
+
+  UpdateConfig(object): Observable<any[]> {
+    return this.http.post<any[]>(apiUrl + 'UpdateConfig', object, httpOptions)
+      .pipe(
+        catchError(this.handleError('UpdateConfig', []))
+      );
+  }
+
 }

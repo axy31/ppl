@@ -2,7 +2,7 @@
   <form (ngSubmit)="UpdateConfig()" [formGroup]="myGroup">
     <div class="form-group full-width-container">
       <mat-form-field>
-        <input matInput placeholder="Enter DaysAhead" name="daysAhead" [formControl]="daysAhead" type="number" required>
+        <input matInput placeholder="Enter DaysAhead" [formControl]="daysAhead" type="number" required>
         <mat-error *ngIf="daysAhead.hasError('required')">Please enter no of Days</mat-error>
       </mat-form-field>
     </div>
@@ -10,14 +10,14 @@
   </form>
   <br /><br />
 
-  <form (ngSubmit)="OpenReprediction()" [formGroup]="myGroup">
+  <form (ngSubmit)="OpenReprediction()" [formGroup]="repredictionGroup">
     <div class="form-group full-width-container">
       <label>Open Reprediction:</label>
-      <mat-radio-group class="radio-group">
+      <mat-radio-group class="radio-group" [formControl]="Reprediction">
         <mat-radio-button class="radio-button" value="Yes"> Yes </mat-radio-button>
         <mat-radio-button class="radio-button" value="No" checked> No </mat-radio-button>
       </mat-radio-group>
     </div>
-    <button mat-raised-button type="submit" color="primary" name="UpdateConfig">Update</button>
+    <button mat-raised-button type="submit" color="primary">Update</button>
   </form>
 </div>

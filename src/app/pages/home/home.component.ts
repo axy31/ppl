@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   constructor(private api: ApiCallService, private toaster: ToasterService) {
   }
 
-  UserRankDetails() {
-    this.api.getuserRankDetails()
+  async UserRankDetails() {
+    await this.api.getuserRankDetails()
       .subscribe(res => {
         for (var count = 1; count < res.length; count++) {          
           if (parseInt(res[count]["Points"]) != parseInt(res[count - 1]["Points"])) {
